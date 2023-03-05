@@ -3,10 +3,15 @@ package topinterviewquestions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author mac
+ * easy
+ */
 public class Problem_0412_FizzBuzz {
 
 	public static List<String> fizzBuzz(int n) {
 		ArrayList<String> ans = new ArrayList<>();
+
 		for (int i = 1; i <= n; i++) {
 			if (i % 15 == 0) {
 				ans.add("FizzBuzz");

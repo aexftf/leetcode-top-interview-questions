@@ -24,6 +24,7 @@ public class Problem_0023_MergeKSortedLists {
 			return null;
 		}
 		PriorityQueue<ListNode> heap = new PriorityQueue<>(new ListNodeComparator());
+
 		for (int i = 0; i < lists.length; i++) {
 			if (lists[i] != null) {
 				heap.add(lists[i]);

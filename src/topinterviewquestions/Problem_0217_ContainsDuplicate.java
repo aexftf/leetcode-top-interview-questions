@@ -24,6 +24,7 @@ public class Problem_0217_ContainsDuplicate {
 		for (int i = arr.length - 1; i >= 0; i--) {
 			heapify(arr, i, arr.length);
 		}
+
 		int heapSize = arr.length;
 		swap(arr, 0, --heapSize);
 		while (heapSize > 0) {

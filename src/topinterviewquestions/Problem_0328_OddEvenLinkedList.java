@@ -15,6 +15,7 @@ public class Problem_0328_OddEvenLinkedList {
 		ListNode even = null;
 		ListNode next = null;
 		int count = 1;
+
 		while (head != null) {
 			next = head.next;
 			head.next = null;

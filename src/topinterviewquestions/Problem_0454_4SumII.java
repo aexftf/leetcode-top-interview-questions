@@ -7,10 +7,13 @@ public class Problem_0454_4SumII {
 	public static int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
 		HashMap<Integer, Integer> map = new HashMap<>();
 		int sum = 0;
+
 		for (int i = 0; i < A.length; i++) {
+
 			for (int j = 0; j < B.length; j++) {
 				sum = A[i] + B[j];
-				if (!map.containsKey(sum)) {
+
+				if  (!map.containsKey(sum)) {
 					map.put(sum, 1);
 				} else {
 					map.put(sum, map.get(sum) + 1);

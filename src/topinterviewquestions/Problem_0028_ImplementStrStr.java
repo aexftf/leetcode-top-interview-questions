@@ -46,6 +46,7 @@ public class Problem_0028_ImplementStrStr {
 				next[i++] = 0;
 			}
 		}
+
 		return next;
 	}
 

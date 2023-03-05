@@ -1,15 +1,23 @@
 package topinterviewquestions;
 
+
+
+/**
+ * @author mac
+ *
+ */
 public class Problem_0395_LongestSubstringWithAtLeastKRepeatingCharacters {
 
 	public static int longestSubstring1(String s, int k) {
 		char[] str = s.toCharArray();
 		int N = str.length;
 		int max = 0;
+
 		for (int i = 0; i < N; i++) {
 			int[] count = new int[256];
 			int collect = 0;
 			int satisfy = 0;
+
 			for (int j = i; j < N; j++) {
 				if (count[str[j]] == 0) {
 					collect++;
@@ -25,6 +33,10 @@ public class Problem_0395_LongestSubstringWithAtLeastKRepeatingCharacters {
 		}
 		return max;
 	}
+
+
+
+
 
 	public static int longestSubstring2(String s, int k) {
 		char[] str = s.toCharArray();
@@ -69,7 +81,19 @@ public class Problem_0395_LongestSubstringWithAtLeastKRepeatingCharacters {
 		return max;
 	}
 
-	// 会超时，但是思路的确是正确的
+
+
+
+
+
+
+
+
+
+
+
+
+	// 会超时，但是思路的确是正确的，不用。
 	public static int longestSubstring3(String s, int k) {
 		return process(s.toCharArray(), 0, s.length() - 1, k);
 	}

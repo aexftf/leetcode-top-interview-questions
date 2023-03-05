@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * 正式面试用
@@ -12,38 +11,31 @@ public class Solution {
     }
 
 
-
-
-
-
-
-
-
     //微软实习一面
     //在一n长度数组，0-n范围，找重复
     //^
-    public static int solveReNumber(int[] nums){
+    public static int solveReNumber(int[] nums) {
 
-     for (int i = 0; i <nums.length ; i++) {
-         for (int j = i+1; j < nums.length ; j++) {
-          if (nums[i]==nums[j]){
-              return nums[i];
-          }
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
+                    return nums[i];
+                }
 
-         }
-     }
+            }
+        }
 
         return -1;
- }
+    }
 
     public static int solveReNumber2(int[] nums) {
 
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
 
-        if (i== nums.length-1){
-            return -1;
-        }
+            if (i == nums.length - 1) {
+                return -1;
+            }
             if (nums[i] == nums[i + 1]) {
                 return nums[i];
             }
@@ -64,15 +56,6 @@ public class Solution {
 //    }
 
 
-
-
-
-
-
-
-
-
-
     //for Test
 //    public static void main(String[] args) {
 //    //今天你测试了吗？
@@ -80,7 +63,8 @@ public class Solution {
 //
 //    }
 
-//qq阅读校招笔试
+
+    //qq阅读校招笔试
     public static int[] merge2(int[] nums1, int m, int[] nums2, int n) {
         //m 是合并结果固定数组的长度（0补齐），n是第二个的长度。
 
@@ -114,39 +98,37 @@ public class Solution {
     }
 
 
-
-
     //合并有序数组
-    private static int[] twoConvertOne(int[] a,int[] b){
+    private static int[] twoConvertOne(int[] a, int[] b) {
         //判断边界
-        if (a==null||a.length==0){
+        if (a == null || a.length == 0) {
             return b;
         }
-        if (b==null||b.length==0){
+        if (b == null || b.length == 0) {
             return a;
         }
 
         //定义一个新的数组
-        int[] c=new int[a.length+b.length];
+        int[] c = new int[a.length + b.length];
         //定义初始索引;
         //m是a的索引,n是b的索引
-        int m=0;
-        int n=0;
+        int m = 0;
+        int n = 0;
         //遍历
         for (int i = 0; i < c.length; i++) {
-            if (m<a.length&&n<b.length){
-                if (a[m]<b[n]){
-                    c[i]=a[m];
+            if (m < a.length && n < b.length) {
+                if (a[m] < b[n]) {
+                    c[i] = a[m];
                     m++;
-                }else {
-                    c[i]=b[n];
+                } else {
+                    c[i] = b[n];
                     n++;
                 }
-            }else if (m<a.length){
-                c[i]=a[m];
+            } else if (m < a.length) {
+                c[i] = a[m];
                 m++;
-            }else if (n<b.length){
-                c[i]=b[n];
+            } else if (n < b.length) {
+                c[i] = b[n];
                 n++;
             }
         }
@@ -155,13 +137,14 @@ public class Solution {
     }
 
     //测试
-    public static void main(String[] args) {
-        int[] a=new int[]{1,3,5,7};
-        int[] b=new int[]{2,4,6,8,10,11};
-        int[] c = twoConvertOne(a, b);
-        System.out.println(Arrays.toString(c));
-    }
-   public static int[] merge2(int[] nums1, int[] nums2) {
+//    public static void main(String[] args) {
+//        int[] a = new int[]{1, 3, 5, 7};
+//        int[] b = new int[]{2, 4, 6, 8, 10, 11};
+//        int[] c = twoConvertOne(a, b);
+//        System.out.println(Arrays.toString(c));
+//    }
+
+    public static int[] merge2(int[] nums1, int[] nums2) {
         int p1 = 0, p2 = 0;
         int m = nums1.length;
         int n = nums2.length;
@@ -169,16 +152,15 @@ public class Solution {
 
         ArrayList<Integer> nums11 = new ArrayList<>();
         ArrayList<Integer> nums22 = new ArrayList<>();
-        for (int i = 0; i <nums1.length ; i++) {
+        for (int i = 0; i < nums1.length; i++) {
             nums11.add(nums1[i]);
         }
-        for (int i = 0; i <nums2.length ; i++) {
+        for (int i = 0; i < nums2.length; i++) {
             nums22.add(nums2[i]);
         }
 
 
-
-        for (int i = 0; i <sorted.length ; i++) {
+        for (int i = 0; i < sorted.length; i++) {
 
             try {
                 Integer integer = nums11.get(i);
@@ -194,11 +176,9 @@ public class Solution {
             }
 
 
-
             if (nums1[i] <= nums2[i]) {
                 sorted[i] = nums1[i];
-            }
-            else {
+            } else {
                 sorted[i] = nums2[i];
             }
 
@@ -208,7 +188,85 @@ public class Solution {
     }
 
 
+    public static List<List<Integer>> permute(int n) {
+        List<List<Integer>> result = new ArrayList<>();
 
+        if (n == 0) {
+            result.add(new ArrayList<>());
+            return result;
+        }
+//
+        List<List<Integer>> prevPermutations = permute(n - 1);
+        int num = n;
+
+        for (List<Integer> prevPermutation : prevPermutations) {
+            for (int i = 0; i <= prevPermutation.size(); i++) {
+                List<Integer> permutation = new ArrayList<>(prevPermutation);
+                permutation.add(i, num);
+                result.add(permutation);
+            }
+        }
+
+        return result;
+    }
+
+    //   output
+//[4, 3, 2, 1]
+//[3, 4, 2, 1]
+//[3, 2, 4, 1]
+//[3, 2, 1, 4]
+//[4, 2, 3, 1]
+// ...
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        LinkedList<Integer> heights = new LinkedList<Integer>();
+        System.out.println("请输入12个人的身高（用空格分隔）：");
+        for (
+                int i = 0;
+                i < 12; i++) {
+            heights.add(scanner.nextInt());
+        }
+
+        // 将身高从高到低排序
+        Collections.sort(heights, Collections.reverseOrder());
+        LinkedList<Integer> group1 = new LinkedList<Integer>(heights.subList(0, 6));
+        LinkedList<Integer> group2 = new LinkedList<Integer>(heights.subList(6, 12));
+
+        // 将身高从低到高排序
+        heights.clear();
+        while (!group1.isEmpty() && !group2.isEmpty()) {
+            if (group1.getFirst() < group2.getFirst()) {
+                heights.add(group1.removeFirst());
+            } else {
+                heights.add(group2.removeFirst());
+            }
+        }
+        heights.addAll(group1);
+        heights.addAll(group2);
+
+        // 计算用时
+        int time1 = 0, time2 = 0;
+        for (
+                int i = 0;
+                i < 6; i++) {
+            time1 += heights.get(i);
+        }
+        for (int i = 6; i < 12; i++) {
+            time2 += heights.get(i);
+        }
+
+        // 输出结果
+        if (time1 < time2) {
+            System.out.println("小组1获胜，用时为：" + time1);
+        } else if (time1 > time2) {
+            System.out.println("小组2获胜，用时为：" + time2);
+        } else {
+            System.out.println("平局");
+        }
+    }
 
 
 
@@ -227,6 +285,27 @@ public class Solution {
 //        current=next;
 //    }
 //    return head;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public static class TreeNode {
