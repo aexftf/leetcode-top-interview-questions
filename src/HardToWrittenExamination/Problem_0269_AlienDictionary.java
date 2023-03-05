@@ -1,4 +1,4 @@
-package topinterviewquestions;
+package HardToWrittenExamination;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -8,9 +8,11 @@ import java.util.Queue;
 public class Problem_0269_AlienDictionary {
 
 	public static String alienOrder(String[] words) {
+
 		if (words == null || words.length == 0) {
 			return "";
 		}
+
 		int N = words.length;
 		HashMap<Character, Integer> indegree = new HashMap<>();
 		for (int i = 0; i < N; i++) {

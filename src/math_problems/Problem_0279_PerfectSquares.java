@@ -1,21 +1,35 @@
-package topinterviewquestions;
+package math_problems;
 
 public class Problem_0279_PerfectSquares {
+
+
+//平方和
 
 	// 暴力解
 	public static int numSquares1(int n) {
 		int res = n, num = 2;
 		while (num * num <= n) {
 			int a = n / (num * num), b = n % (num * num);
+
 			res = Math.min(res, a + numSquares1(b));
+
 			num++;
 		}
 		return res;
 	}
 
+
+
+
+
+
+	//-------------------------------------------------------------------------------
+
+
+
 	// 1 : 1, 4, 9, 16, 25, 36, ...
 	// 4 : 7, 15, 23, 28, 31, 39, 47, 55, 60, 63, 71, ...
-	// 规律解
+	// 规律解 2b
 	// 规律一：个数不超过4
 	// 规律二：出现1个的时候，显而易见
 	// 规律三：任何数 % 8 == 7，一定是4个
@@ -41,7 +55,18 @@ public class Problem_0279_PerfectSquares {
 		return 3;
 	}
 
-	// 数学解
+
+
+
+
+
+
+
+
+
+
+
+	// 数学解  2b
 	// 1）四平方和定理
 	// 2）任何数消掉4的因子，结论不变
 	public static int numSquares3(int n) {
@@ -60,10 +85,22 @@ public class Problem_0279_PerfectSquares {
 		return 3;
 	}
 
+
+
+
+
+
+
+
 	public static void main(String[] args) {
 		for (int i = 1; i < 1000; i++) {
 			System.out.println(i + " , " + numSquares1(i));
 		}
 	}
+
+
+
+
+
 
 }
