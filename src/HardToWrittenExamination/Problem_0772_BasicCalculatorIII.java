@@ -1,4 +1,4 @@
-package topinterviewquestions;
+package HardToWrittenExamination;
 
 import java.util.LinkedList;
 

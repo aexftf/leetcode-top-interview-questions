@@ -8,19 +8,26 @@ public class Problem_0285_InorderSuccessorInBST {
 		public TreeNode right;
 	}
 
+
+
 	public static TreeNode inorderSuccessor(TreeNode head, TreeNode p) {
+
 		if (head == null) {
 			return null;
 		}
+
 		TreeNode cur = head;
 		TreeNode mostRight = null;
 		TreeNode pre = null;
+
+		//中序遍历
 		while (cur != null) {
 			mostRight = cur.left;
 			if (mostRight != null) {
 				while (mostRight.right != null && mostRight.right != cur) {
 					mostRight = mostRight.right;
 				}
+
 				if (mostRight.right == null) {
 					mostRight.right = cur;
 					cur = cur.left;
@@ -29,6 +36,7 @@ public class Problem_0285_InorderSuccessorInBST {
 					mostRight.right = null;
 				}
 			}
+
 			if (pre == p) {
 				return cur;
 			} else {

@@ -32,6 +32,7 @@ public class Problem_0236_LowestCommonAncestorOfBinaryTree {
 		Info rightInfo = process(X.right, o1, o2);
 		boolean findO1 = X == o1 || leftInfo.findO1 || rightInfo.findO1;
 		boolean findO2 = X == o2 || leftInfo.findO2 || rightInfo.findO2;
+
 		TreeNode ans = null;
 		if (leftInfo.ans != null) {
 			ans = leftInfo.ans;
