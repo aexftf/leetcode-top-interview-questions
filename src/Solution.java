@@ -10,6 +10,39 @@ public class Solution {
         //Example
     }
 
+    public  int maxPath(int[][] matrix) {
+        int ans = Integer.MIN_VALUE;
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[0].length; col++) {
+                ans = Math.max(ans, process(matrix, row, col));
+            }
+        }
+        return ans;
+    }
+
+    // 假设在matrix中，从i行，j列出发，能走出的最长递增路径，返回最长递增路径的长度
+    public static int process(int[][] matrix, int i, int j) {
+        if (i < 0 || i >= matrix.length || j < 0 || j >= matrix[0].length) {
+            return -1;
+        }
+        int up = 0;
+        int down = 0;
+        int left = 0;
+        int right = 0;
+        if (i - 1 >= 0 && matrix[i - 1][j] > matrix[i][j]) {
+            up = process(matrix, i - 1, j);
+        }
+        if (i + 1 < matrix.length && matrix[i + 1][j] > matrix[i][j]) {
+            down = process(matrix, i + 1, j);
+        }
+        if (j - 1 >= 0 && matrix[i][j - 1] > matrix[i][j]) {
+            left = process(matrix, i, j - 1);
+        }
+        if (j + 1 < matrix[0].length && matrix[i][j + 1] > matrix[i][j]) {
+            right = process(matrix, i, j + 1);
+        }
+        return 1 + Math.max(Math.max(up, down), Math.max(left, right));
+    }
 
     //微软实习一面
     //在一n长度数组，0-n范围，找重复
@@ -45,15 +78,6 @@ public class Solution {
 
         return -1;
     }
-
-//        public static void main(String[] args) {
-////input: [1,3,1,0,2,5,3] output: 2 or 3
-//    int []num={1,3,1,0,2,5,3};
-//        int solve = solveReNumber(num);
-//        System.out.println(solve);
-//
-//
-//    }
 
 
     //for Test

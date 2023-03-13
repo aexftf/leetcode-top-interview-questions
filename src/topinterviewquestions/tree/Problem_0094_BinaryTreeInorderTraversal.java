@@ -1,20 +1,23 @@
-package topinterviewquestions;
+package topinterviewquestions.tree;
 
-public class Problem_0230_KthSmallestElementInBST {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Problem_0094_BinaryTreeInorderTraversal {
 
 	public static class TreeNode {
-		public int val;
-		public TreeNode left;
-		public TreeNode right;
+		int val;
+		TreeNode left;
+		TreeNode right;
 	}
 
-	public static int kthSmallest(TreeNode head, int k) {
-		if (head == null) {
-			return -1;
+	public static List<Integer> inorderTraversal(TreeNode root) {
+		List<Integer> ans = new ArrayList<>();
+		if (root == null) {
+			return ans;
 		}
-		TreeNode cur = head;
+		TreeNode cur = root;
 		TreeNode mostRight = null;
-		int index = 1;
 		while (cur != null) {
 			mostRight = cur.left;
 			if (mostRight != null) {
@@ -29,12 +32,10 @@ public class Problem_0230_KthSmallestElementInBST {
 					mostRight.right = null;
 				}
 			}
-			if (index++ == k) {
-				return cur.val;
-			}
+			ans.add(cur.val);
 			cur = cur.right;
 		}
-		return -1;
+		return ans;
 	}
 
 }

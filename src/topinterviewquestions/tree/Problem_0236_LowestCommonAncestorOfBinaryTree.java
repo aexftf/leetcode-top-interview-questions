@@ -1,4 +1,4 @@
-package topinterviewquestions;
+package topinterviewquestions.tree;
 
 public class Problem_0236_LowestCommonAncestorOfBinaryTree {
 
