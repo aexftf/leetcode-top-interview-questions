@@ -1,5 +1,5 @@
 package topinterviewquestions;
-
+//只有笔试会考
 public class Problem_0326_PowerOfThree {
 
 	// 如果一个数字是3的某次幂，那么这个数一定只含有3这个质数因子

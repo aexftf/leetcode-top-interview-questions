@@ -1,11 +1,11 @@
-package topinterviewquestions;
+package topinterviewquestions.tree;
 
 /*
  * 提交时把类名、构造函数名从Problem_0208_Trie改为Trie
  * 
  * */
 public class Problem_0208_Trie {
-
+//前缀树
 	public static class Node {
 		public boolean end;
 		public Node[] nexts;
@@ -29,6 +29,7 @@ public class Problem_0208_Trie {
 		char[] str = word.toCharArray();
 		Node node = root;
 		int path = 0;
+
 		for (int i = 0; i < str.length; i++) {
 			path = str[i] - 'a';
 			if (node.nexts[path] == null) {
@@ -63,6 +64,7 @@ public class Problem_0208_Trie {
 		char[] chs = pre.toCharArray();
 		Node node = root;
 		int index = 0;
+
 		for (int i = 0; i < chs.length; i++) {
 			index = chs[i] - 'a';
 			if (node.nexts[index] == null) {

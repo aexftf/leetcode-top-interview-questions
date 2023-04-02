@@ -2,10 +2,11 @@ package topinterviewquestions;
 
 public class Problem_0191_NumberOf1Bits {
     
-	
+//
 	public static int hammingWeight1(int n) {
 		int bits = 0;
 		int rightOne = 0;
+
 		while(n != 0) {
 			bits++;
 			rightOne = n & (-n);

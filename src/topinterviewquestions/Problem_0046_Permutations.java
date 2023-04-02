@@ -3,16 +3,20 @@ package topinterviewquestions;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-
+//给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
 public class Problem_0046_Permutations {
 
 	public static List<List<Integer>> onClass(int[] nums) {
+		//结果数组
 		List<List<Integer>> ans = new ArrayList<>();
+		//
 		HashSet<Integer> rest = new HashSet<>();
 		for (int num : nums) {
 			rest.add(num);
 		}
+		//每个可能性数组
 		ArrayList<Integer> path = new ArrayList<>();
+
 		f(rest, path, ans);
 		return ans;
 	}
@@ -25,6 +29,7 @@ public class Problem_0046_Permutations {
 			for (int num : rest) {
 				ArrayList<Integer> curPath = new ArrayList<>(path);
 				curPath.add(num);
+
 				HashSet<Integer> clone = cloneExceptNum(rest, num);
 				f(clone, curPath, ans);
 			}
@@ -36,6 +41,10 @@ public class Problem_0046_Permutations {
 		clone.remove(num);
 		return clone;
 	}
+
+
+
+	//-------------------------------------------------------
 
 	public static List<List<Integer>> permute(int[] nums) {
 		List<List<Integer>> ans = new ArrayList<>();
@@ -58,6 +67,7 @@ public class Problem_0046_Permutations {
 			}
 		}
 	}
+
 
 	public static void swap(int[] nums, int i, int j) {
 		int tmp = nums[i];

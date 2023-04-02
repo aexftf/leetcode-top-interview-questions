@@ -1,5 +1,6 @@
 package topinterviewquestions;
 
+//开方，二分法解
 public class Problem_0069_SqrtX {
 
 	// x一定非负，输入可以保证
@@ -11,9 +12,11 @@ public class Problem_0069_SqrtX {
 			return 1;
 		}
 		long ans = 1;
+
 		long L = 1;
 		long R = x;
 		long M = 0;
+
 		while (L <= R) {
 			M = (L + R) / 2;
 			if (M * M <= x) {

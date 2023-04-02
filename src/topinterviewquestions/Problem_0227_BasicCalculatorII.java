@@ -6,9 +6,11 @@ public class Problem_0227_BasicCalculatorII {
 
 	public static int calculate(String s) {
 		char[] str = s.toCharArray();
+
 		LinkedList<String> list = new LinkedList<>();
 		StringBuilder builder = new StringBuilder();
 		builder.setLength(0);
+
 		for (int i = 0; i < str.length; i++) {
 			if (str[i] != ' ') {
 				if (str[i] >= '0' && str[i] <= '9') {

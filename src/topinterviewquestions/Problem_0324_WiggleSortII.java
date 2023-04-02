@@ -1,5 +1,5 @@
 package topinterviewquestions;
-
+ //x	摆动排序 II
 public class Problem_0324_WiggleSortII {
 
 	// 时间复杂度O(N)，额外空间复杂度O(1)
@@ -8,7 +8,9 @@ public class Problem_0324_WiggleSortII {
 			return;
 		}
 		int N = nums.length;
+
 		findIndexNum(nums, 0, nums.length - 1, N / 2);
+
 		if ((N & 1) == 0) {
 			shuffle(nums, 0, nums.length - 1);
 			reverse(nums, 0, nums.length - 1);
@@ -20,6 +22,7 @@ public class Problem_0324_WiggleSortII {
 	public static int findIndexNum(int[] arr, int L, int R, int index) {
 		int pivot = 0;
 		int[] range = null;
+
 		while (L < R) {
 			pivot = arr[L + (int) (Math.random() * (R - L + 1))];
 			range = partition(arr, L, R, pivot);
@@ -51,6 +54,7 @@ public class Problem_0324_WiggleSortII {
 	}
 
 	public static void shuffle(int[] nums, int l, int r) {
+
 		while (r - l + 1 > 0) {
 			int lenAndOne = r - l + 2;
 			int bloom = 3;
@@ -74,6 +78,7 @@ public class Problem_0324_WiggleSortII {
 			int record = nums[next + base];
 			int tmp = 0;
 			nums[next + base] = nums[trigger + base];
+
 			while (cur != trigger) {
 				next = (2 * cur) % bloom;
 				tmp = nums[next + base];

@@ -1,5 +1,5 @@
-package topinterviewquestions;
-
+package HardToWrittenExamination;
+//
 public class Problem_0190_ReverseBits {
 
 	// 代码看着很魔幻吧？

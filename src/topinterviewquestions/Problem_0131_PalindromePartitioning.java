@@ -9,8 +9,10 @@ public class Problem_0131_PalindromePartitioning {
 	public static List<List<String>> partition(String s) {
 		// dp[L][R] -> 是不是回文
 		boolean[][] dp = getdp(s.toCharArray());
+
 		LinkedList<String> path = new LinkedList<>();
 		List<List<String>> ans = new ArrayList<>();
+
 		process(s, 0, path, dp, ans);
 		return ans;
 	}
@@ -18,14 +20,18 @@ public class Problem_0131_PalindromePartitioning {
 	public static boolean[][] getdp(char[] str) {
 		int N = str.length;
 		boolean[][] dp = new boolean[N][N];
+
 		for (int i = 0; i < N - 1; i++) {
 			dp[i][i] = true;
 			dp[i][i + 1] = str[i] == str[i + 1];
 		}
+
 		dp[N - 1][N - 1] = true;
+
 		for (int j = 2; j < N; j++) {
 			int row = 0;
 			int col = j;
+
 			while (row < N && col < N) {
 				dp[row][col] = str[row] == str[col] && dp[row + 1][col - 1];
 				row++;
@@ -39,7 +45,7 @@ public class Problem_0131_PalindromePartitioning {
 	// s[0...index-1] 已经做过的决定，放入了path中
 	// 在index开始做属于这个位置的决定，
 	// index == s.len  path之前做的决定（一种分割方法），放进总答案ans里
-	public static void process(String s, int index, LinkedList<String> path, 
+	public static void process(String s, int index, LinkedList<String> path,
 			boolean[][] dp, List<List<String>> ans) {
 		if (index == s.length()) {
 			ans.add(copy(path));
@@ -60,6 +66,7 @@ public class Problem_0131_PalindromePartitioning {
 
 	public static List<String> copy(List<String> path) {
 		List<String> ans = new ArrayList<>();
+
 		for (String p : path) {
 			ans.add(p);
 		}

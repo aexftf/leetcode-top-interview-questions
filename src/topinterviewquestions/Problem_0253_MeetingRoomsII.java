@@ -8,12 +8,16 @@ public class Problem_0253_MeetingRoomsII {
 
 	public static int minMeetingRooms(int[][] m) {
 		Line[] lines = new Line[m.length];
+
 		for (int i = 0; i < m.length; i++) {
 			lines[i] = new Line(m[i][0], m[i][1]);
 		}
+
 		Arrays.sort(lines, new StartComparator());
 		PriorityQueue<Line> heap = new PriorityQueue<>(new EndComparator());
+
 		int max = 0;
+
 		for (int i = 0; i < lines.length; i++) {
 			while (!heap.isEmpty() && heap.peek().end <= lines[i].start) {
 				heap.poll();
@@ -34,6 +38,7 @@ public class Problem_0253_MeetingRoomsII {
 		}
 	}
 
+
 	public static class StartComparator implements Comparator<Line> {
 
 		@Override
@@ -42,6 +47,7 @@ public class Problem_0253_MeetingRoomsII {
 		}
 
 	}
+
 
 	public static class EndComparator implements Comparator<Line> {
 

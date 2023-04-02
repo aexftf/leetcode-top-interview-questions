@@ -1,5 +1,5 @@
 package topinterviewquestions;
-
+//把0都放后面
 public class Problem_0283_MoveZeroes {
 
 

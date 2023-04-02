@@ -8,6 +8,7 @@ public class Problem_0134_GasStation {
 
 	public static int canCompleteCircuit1(int[] gas, int[] cost) {
 		boolean[] good = goodArray(gas, cost);
+
 		for (int i = 0; i < gas.length; i++) {
 			if (good[i]) {
 				return i;
@@ -20,28 +21,36 @@ public class Problem_0134_GasStation {
 		int N = g.length;
 		int M = N << 1;
 		int[] arr = new int[M];
+
 		for (int i = 0; i < N; i++) {
 			arr[i] = g[i] - c[i];
 			arr[i + N] = g[i] - c[i];
 		}
+
 		for (int i = 1; i < M; i++) {
 			arr[i] += arr[i - 1];
 		}
+
 		LinkedList<Integer> w = new LinkedList<>();
+
 		for (int i = 0; i < N; i++) {
 			while (!w.isEmpty() && arr[w.peekLast()] >= arr[i]) {
 				w.pollLast();
 			}
 			w.addLast(i);
 		}
+
 		boolean[] ans = new boolean[N];
+
 		for (int offset = 0, i = 0, j = N; j < M; offset = arr[i++], j++) {
 			if (arr[w.peekFirst()] - offset >= 0) {
 				ans[i] = true;
 			}
+
 			if (w.peekFirst() == i) {
 				w.pollFirst();
 			}
+
 			while (!w.isEmpty() && arr[w.peekLast()] >= arr[j]) {
 				w.pollLast();
 			}
@@ -50,15 +59,29 @@ public class Problem_0134_GasStation {
 		return ans;
 	}
 
+
+
+
+
+
+
+
+
+
+
+
 	// 这个方法的时间复杂度O(N)，额外空间复杂度O(1) 训练营讲了
 	public static int canCompleteCircuit2(int[] gas, int[] cost) {
 		if (gas == null || gas.length == 0) {
 			return -1;
 		}
+
 		if (gas.length == 1) {
 			return gas[0] < cost[0] ? -1 : 0;
 		}
+
 		boolean[] good = stations(cost, gas);
+
 		for (int i = 0; i < gas.length; i++) {
 			if (good[i]) {
 				return i;
@@ -71,12 +94,14 @@ public class Problem_0134_GasStation {
 		if (cost == null || gas == null || cost.length < 2 || cost.length != gas.length) {
 			return null;
 		}
+
 		int init = changeDisArrayGetInit(cost, gas);
 		return init == -1 ? new boolean[cost.length] : enlargeArea(cost, init);
 	}
 
 	public static int changeDisArrayGetInit(int[] dis, int[] oil) {
 		int init = -1;
+
 		for (int i = 0; i < dis.length; i++) {
 			dis[i] = oil[i] - dis[i];
 			if (dis[i] >= 0) {
@@ -88,10 +113,12 @@ public class Problem_0134_GasStation {
 
 	public static boolean[] enlargeArea(int[] dis, int init) {
 		boolean[] res = new boolean[dis.length];
+
 		int start = init;
 		int end = nextIndex(init, dis.length);
 		int need = 0;
 		int rest = 0;
+
 		do {
 			// 当前来到的start已经在连通区域中，可以确定后续的开始点一定无法转完一圈
 			if (start != init && start == lastIndex(end, dis.length)) {
@@ -123,6 +150,7 @@ public class Problem_0134_GasStation {
 	// start如果可以达到这个良好出发点，那么从start出发一定可以转一圈
 	public static void connectGood(int[] dis, int start, int init, boolean[] res) {
 		int need = 0;
+
 		while (start != init) {
 			if (dis[start] < need) {
 				need -= dis[start];

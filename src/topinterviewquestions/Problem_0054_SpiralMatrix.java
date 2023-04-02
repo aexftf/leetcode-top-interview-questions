@@ -7,6 +7,7 @@ public class Problem_0054_SpiralMatrix {
 
     public static List<Integer> spiralOrder(int[][] matrix) {
 		List<Integer> ans = new ArrayList<>();
+
 		if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
 			return ans;
 		}
@@ -14,11 +15,15 @@ public class Problem_0054_SpiralMatrix {
 		int b = 0;
 		int c = matrix.length - 1;
 		int d = matrix[0].length - 1;
+
 		while (a <= c && b <= d) {
 			addEdge(matrix, a++, b++, c--, d--, ans);
 		}
 		return ans;
 	}
+
+
+
 
 	public static void addEdge(int[][] m, int a, int b, int c, int d, List<Integer> ans) {
 		if (a == c) {

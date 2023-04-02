@@ -8,8 +8,11 @@ public class Problem_0044_WildcardMatching {
 		return process1(s, p, 0, 0);
 	}
 
+
+
 	// s[si....] 能否被 p[pi....] 匹配出来
 	public static boolean process1(char[] s, char[] p, int si, int pi) {
+
 		if (si == s.length) { // s -> ""
 			if (pi == p.length) { // p -> ""
 				return true;
@@ -30,8 +33,9 @@ public class Problem_0044_WildcardMatching {
 		}
 		// si.. pi.. pi ? *
 		if (p[pi] == '?') {
-			return process1(s, p, si + 1, pi + 1);
+	 		return process1(s, p, si + 1, pi + 1);
 		}
+
 		for (int len = 0; len <= s.length - si; len++) {
 			if (process1(s, p, si + len, pi + 1)) {
 				return true;
@@ -39,6 +43,17 @@ public class Problem_0044_WildcardMatching {
 		}
 		return false;
 	}
+
+
+
+
+
+
+
+
+
+
+
 
 	public static boolean isMatch2(String str, String pattern) {
 		char[] s = str.toCharArray();

@@ -23,6 +23,7 @@ public class Problem_0285_InorderSuccessorInBST {
 		//中序遍历
 		while (cur != null) {
 			mostRight = cur.left;
+
 			if (mostRight != null) {
 				while (mostRight.right != null && mostRight.right != cur) {
 					mostRight = mostRight.right;

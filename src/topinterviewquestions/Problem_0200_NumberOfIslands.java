@@ -6,9 +6,11 @@ public class Problem_0200_NumberOfIslands {
 		if (m == null || m.length == 0 || m[0] == null || m[0].length == 0) {
 			return 0;
 		}
+
 		int N = m.length;
 		int M = m[0].length;
 		int res = 0;
+
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
 				if (m[i][j] == '1') {

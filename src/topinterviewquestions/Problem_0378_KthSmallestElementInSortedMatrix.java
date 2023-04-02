@@ -32,15 +32,18 @@ public class Problem_0378_KthSmallestElementInSortedMatrix {
 		int M = matrix[0].length;
 		PriorityQueue<Node> heap = new PriorityQueue<>(new NodeComparator());
 		boolean[][] set = new boolean[N][M];
+
 		heap.add(new Node(matrix[0][0], 0, 0));
 		set[0][0] = true;
 		int count = 0;
 		Node ans = null;
+
 		while (!heap.isEmpty()) {
 			ans = heap.poll();
 			if (++count == k) {
 				break;
 			}
+
 			int row = ans.row;
 			int col = ans.col;
 			if (row + 1 < N && !set[row + 1][col]) {
@@ -54,6 +57,11 @@ public class Problem_0378_KthSmallestElementInSortedMatrix {
 		}
 		return ans.value;
 	}
+
+
+
+
+
 
 	public static int kthSmallest2(int[][] matrix, int k) {
 		int N = matrix.length;

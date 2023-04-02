@@ -7,6 +7,7 @@ public class Problem_0206_ReverseLinkedList {
 		ListNode next;
 	}
 
+
 	public static ListNode reverseList(ListNode head) {
 		ListNode pre = null;
 		ListNode next = null;

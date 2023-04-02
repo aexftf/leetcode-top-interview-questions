@@ -1,5 +1,5 @@
 package topinterviewquestions;
-
+//删除重复项,返回新长度
 public class Problem_0026_RemoveDuplicatesFromSortedArray {
 
 	public static int removeDuplicates(int[] nums) {
@@ -9,7 +9,9 @@ public class Problem_0026_RemoveDuplicatesFromSortedArray {
 		if (nums.length < 2) {
 			return nums.length;
 		}
+
 		int done = 0;
+
 		for (int i = 1; i < nums.length; i++) {
 			if (nums[i] != nums[done]) {
 				nums[++done] = nums[i];

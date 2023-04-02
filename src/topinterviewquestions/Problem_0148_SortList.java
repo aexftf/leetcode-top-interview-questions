@@ -5,7 +5,6 @@ public class Problem_0148_SortList {
 	public static class ListNode {
 		int val;
 		ListNode next;
-
 		public ListNode(int v) {
 			val = v;
 		}
@@ -14,17 +13,22 @@ public class Problem_0148_SortList {
 	public static ListNode sortList(ListNode head) {
 		int N = 0;
 		ListNode cur = head;
+
 		while (cur != null) {
 			N++;
 			cur = cur.next;
 		}
+
 		ListNode h = head;
 		ListNode teamFirst = head;
 		ListNode pre = null;
+
 		for (int len = 1; len < N; len <<= 1) {
+
 			while (teamFirst != null) {
 				ListNode[] hthtn = hthtn(teamFirst, len);
 				ListNode[] mhmt = merge(hthtn[0], hthtn[1], hthtn[2], hthtn[3]);
+
 				if (h == teamFirst) {
 					h = mhmt[0];
 					pre = mhmt[1];
@@ -41,12 +45,14 @@ public class Problem_0148_SortList {
 	}
 
 	public static ListNode[] hthtn(ListNode teamFirst, int len) {
+
 		ListNode ls = teamFirst;
 		ListNode le = teamFirst;
 		ListNode rs = null;
 		ListNode re = null;
 		ListNode next = null;
 		int pass = 0;
+
 		while (teamFirst != null) {
 			pass++;
 			if (pass <= len) {
@@ -64,6 +70,7 @@ public class Problem_0148_SortList {
 			teamFirst = teamFirst.next;
 		}
 		le.next = null;
+
 		if (re != null) {
 			next = re.next;
 			re.next = null;
@@ -75,10 +82,12 @@ public class Problem_0148_SortList {
 		if (rs == null) {
 			return new ListNode[] { ls, le };
 		}
+
 		ListNode head = null;
 		ListNode pre = null;
 		ListNode cur = null;
 		ListNode tail = null;
+
 		while (ls != le.next && rs != re.next) {
 			if (ls.val <= rs.val) {
 				cur = ls;
@@ -97,6 +106,7 @@ public class Problem_0148_SortList {
 		}
 		if (ls != le.next) {
 			while (ls != le.next) {
+
 				pre.next = ls;
 				pre = ls;
 				tail = ls;

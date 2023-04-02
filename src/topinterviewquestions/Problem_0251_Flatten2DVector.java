@@ -27,9 +27,11 @@ public class Problem_0251_Flatten2DVector {
 			if (row == matrix.length) {
 				return false;
 			}
+
 			if (!curUse) {
 				return true;
 			}
+
 			// (row，col)用过了
 			if (col < matrix[row].length - 1) {
 				col++;
@@ -39,6 +41,7 @@ public class Problem_0251_Flatten2DVector {
 					row++;
 				} while (row < matrix.length && matrix[row].length == 0);
 			}
+
 			// 新的(row，col)
 			if (row != matrix.length) {
 				curUse = false;

@@ -35,21 +35,29 @@ public class Problem_0687_LongestUnivaluePath {
 		if (x == null) {
 			return new Info(0, 0);
 		}
+
 		TreeNode l = x.left;
 		TreeNode r = x.right;
+
 		Info linfo = process(l);
 		Info rinfo = process(r);
 		int len = 1;
+
+
+
 		if (l != null && l.val == x.val) {
 			len = linfo.len + 1;
 		}
 		if (r != null && r.val == x.val) {
 			len = Math.max(len, rinfo.len + 1);
 		}
+
 		int max = Math.max(Math.max(linfo.max, rinfo.max), len);
+
 		if (l != null && r != null && l.val == x.val && r.val == x.val) {
 			max = Math.max(max, linfo.len + rinfo.len + 1);
 		}
+
 		return new Info(len, max);
 	}
 

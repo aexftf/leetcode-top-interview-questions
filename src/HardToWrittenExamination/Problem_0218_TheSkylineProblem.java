@@ -36,15 +36,18 @@ public class Problem_0218_TheSkylineProblem {
 
 	public static List<List<Integer>> getSkyline(int[][] matrix) {
 		Node[] nodes = new Node[matrix.length * 2];
+
 		for (int i = 0; i < matrix.length; i++) {
 			nodes[i * 2] = new Node(matrix[i][0], true, matrix[i][2]);
 			nodes[i * 2 + 1] = new Node(matrix[i][1], false, matrix[i][2]);
 		}
+
 		Arrays.sort(nodes, new NodeComparator());
 		// 有序表，key 代表某个高度 value 这个高度出现的次数
 		TreeMap<Integer, Integer> mapHeightTimes = new TreeMap<>();
 		// 有序表 key x的值 value 处在x位置时的高度
 		TreeMap<Integer, Integer> xMaxHeight = new TreeMap<>();
+
 		for (int i = 0; i < nodes.length; i++) {
 			if (nodes[i].isAdd) {
 				if (!mapHeightTimes.containsKey(nodes[i].h)) {
@@ -65,7 +68,9 @@ public class Problem_0218_TheSkylineProblem {
 				xMaxHeight.put(nodes[i].x, mapHeightTimes.lastKey());
 			}
 		}
+
 		List<List<Integer>> ans = new ArrayList<>();
+
 		for (Entry<Integer, Integer> entry : xMaxHeight.entrySet()) {
 			int curX = entry.getKey();
 			int curMaxHeight = entry.getValue();

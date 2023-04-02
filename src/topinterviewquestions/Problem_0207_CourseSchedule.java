@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Problem_0207_CourseSchedule {
-
+						//图的拓扑排序，面试不太可能
 	// 一个node，就是一个课程
 	// name是课程的编号
 	// in是课程的入度
@@ -26,16 +26,21 @@ public class Problem_0207_CourseSchedule {
 		if (prerequisites == null || prerequisites.length == 0) {
 			return true;
 		}
+
 		HashMap<Integer, Node> nodes = new HashMap<>();
+
 		for (int[] arr : prerequisites) {
 			int to = arr[0];
 			int from = arr[1];
+
 			if (!nodes.containsKey(to)) {
 				nodes.put(to, new Node(to));
 			}
+
 			if (!nodes.containsKey(from)) {
 				nodes.put(from, new Node(from));
 			}
+
 			Node t = nodes.get(to);
 			Node f = nodes.get(from);
 			f.nexts.add(t);
@@ -48,10 +53,12 @@ public class Problem_0207_CourseSchedule {
 				zeroInQueue.add(node);
 			}
 		}
+
 		int count = 0;
 		while (!zeroInQueue.isEmpty()) {
 			Node cur = zeroInQueue.poll();
 			count++;
+
 			for (Node next : cur.nexts) {
 				if (--next.in == 0) {
 					zeroInQueue.add(next);

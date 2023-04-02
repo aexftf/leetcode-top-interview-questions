@@ -14,11 +14,15 @@ public class Problem_0105_ConstructBinaryTreeFromPreorderAndInorderTraversal {
 		}
 	}
 
+
+
 	public static TreeNode buildTree(int[] preorder, int[] inorder) {
 		HashMap<Integer, Integer> map = new HashMap<>();
+
 		for (int i = 0; i < inorder.length; i++) {
 			map.put(inorder[i], i);
 		}
+
 		return f(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1, map);
 	}
 
@@ -26,11 +30,15 @@ public class Problem_0105_ConstructBinaryTreeFromPreorderAndInorderTraversal {
 		if (L1 > R1) {
 			return null;
 		}
+
 		TreeNode head = new TreeNode(pre[L1]);
+
 		if (L1 == R1) {
 			return head;
 		}
+
 		int findIndex = map.get(pre[L1]);
+
 		head.left = f(pre, L1 + 1, L1 + findIndex - L2, in, L2, findIndex - 1, map);
 		head.right = f(pre, L1 + findIndex - L2 + 1, R1, in, findIndex + 1, R2, map);
 		return head;

@@ -11,20 +11,24 @@ public class Problem_0308_RangeSumQuery2DMutable {
 		if (matrix.length == 0 || matrix[0].length == 0) {
 			return;
 		}
+
 		N = matrix.length;
 		M = matrix[0].length;
 		tree = new int[N + 1][M + 1];
 		nums = new int[N][M];
+
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
 				update(i, j, matrix[i][j]);
 			}
 		}
+
 	}
 
 	// 用户给我的row，col不能越界
 	private int sum(int row, int col) {
 		int sum = 0;
+
 		for (int i = row + 1; i > 0; i -= i & (-i)) {
 			for (int j = col + 1; j > 0; j -= j & (-j)) {
 				sum += tree[i][j];
@@ -38,8 +42,10 @@ public class Problem_0308_RangeSumQuery2DMutable {
 		if (N == 0 || M == 0) {
 			return;
 		}
+
 		int add = val - nums[row][col];
 		nums[row][col] = val;
+
 		for (int i = row + 1; i <= N; i += i & (-i)) {
 			for (int j = col + 1; j <= M; j += j & (-j)) {
 				tree[i][j] += add;

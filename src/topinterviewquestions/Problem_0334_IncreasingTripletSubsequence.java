@@ -6,15 +6,18 @@ public class Problem_0334_IncreasingTripletSubsequence {
 		if (arr == null || arr.length < 3) {
 			return false;
 		}
+
 		int[] ends = new int[3];
 		ends[0] = arr[0];
 		int right = 0;
 		int l = 0;
 		int r = 0;
 		int m = 0;
+
 		for (int i = 1; i < arr.length; i++) {
 			l = 0;
 			r = right;
+
 			while (l <= r) {
 				m = (l + r) / 2;
 				if (arr[i] > ends[m]) {
@@ -24,6 +27,7 @@ public class Problem_0334_IncreasingTripletSubsequence {
 				}
 			}
 			right = Math.max(right, l);
+
 			if (right > 1) {
 				return true;
 			}

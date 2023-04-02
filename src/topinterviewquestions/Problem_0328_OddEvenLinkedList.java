@@ -19,6 +19,7 @@ public class Problem_0328_OddEvenLinkedList {
 		while (head != null) {
 			next = head.next;
 			head.next = null;
+
 			if ((count & 1) == 1) {
 				firstOdd = firstOdd == null ? head : firstOdd;
 				if (odd != null) {

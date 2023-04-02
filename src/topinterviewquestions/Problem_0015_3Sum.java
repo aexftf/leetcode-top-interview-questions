@@ -4,19 +4,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Problem_0015_3Sum {
+public class
+
+
+
+Problem_0015_3Sum {
 
 	public static List<List<Integer>> threeSum1(int[] nums) {
 		Arrays.sort(nums);
 		List<List<Integer>> ans = new ArrayList<>();
+
 		// 第一个数选了i位置的数
 		for (int i = 0; i < nums.length - 2; i++) {
 			if (i == 0 || nums[i - 1] != nums[i]) {
+
 				List<List<Integer>> nexts = twoSum1(nums, i + 1, -nums[i]);
 				for (List<Integer> cur : nexts) {
-					cur.add(0, nums[i]);
-					ans.add(cur);
+					cur.add(0, nums[i]);//凑三个数
+					ans.add(cur);//三个数，添加上。
 				}
+
 			}
 		}
 		return ans;
@@ -28,6 +35,7 @@ public class Problem_0015_3Sum {
 		int L = begin;
 		int R = nums.length - 1;
 		List<List<Integer>> ans = new ArrayList<>();
+
 		while (L < R) {
 			if (nums[L] + nums[R] > target) {
 				R--;
@@ -37,14 +45,27 @@ public class Problem_0015_3Sum {
 				if (L == begin || nums[L - 1] != nums[L]) {
 					List<Integer> cur = new ArrayList<>();
 					cur.add(nums[L]);
-					cur.add(nums[R]);
-					ans.add(cur);
+					cur.add(nums[R]);//凑2个数
+					ans.add(cur);//凑2个数，并加上
 				}
 				L++;
 			}
 		}
 		return ans;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public static List<List<Integer>> threeSum2(int[] nums) {
 		Arrays.sort(nums);

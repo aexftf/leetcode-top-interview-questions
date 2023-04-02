@@ -3,8 +3,10 @@ package topinterviewquestions;
 public class Problem_0268_MissingNumber {
 
 	public static int missingNumber(int[] arr) {
+
 		int l = 0;
 		int r = arr.length;
+
 		while (l < r) {
 			if (arr[l] == l) {
 				l++;

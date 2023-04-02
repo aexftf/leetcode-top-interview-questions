@@ -1,5 +1,5 @@
 package topinterviewquestions;
-
+//面试不考
 public class Problem_0029_DivideTwoIntegers {
 
 	public static int add(int a, int b) {
@@ -12,13 +12,16 @@ public class Problem_0029_DivideTwoIntegers {
 		return sum;
 	}
 
+
 	public static int negNum(int n) {
 		return add(~n, 1);
 	}
 
+
 	public static int minus(int a, int b) {
 		return add(a, negNum(b));
 	}
+
 
 	public static int multi(int a, int b) {
 		int res = 0;
@@ -66,6 +69,11 @@ public class Problem_0029_DivideTwoIntegers {
 	}
 	// div(a,b) a和b都不能是系统最小
 
+
+
+
+
+
 	// 现场福利函数
 	public static String printNumBinary(int num) {
 		StringBuilder builder = new StringBuilder();
@@ -74,6 +82,12 @@ public class Problem_0029_DivideTwoIntegers {
 		}
 		return builder.toString();
 	}
+
+
+
+
+
+
 
 	public static void main(String[] args) {
 		int num = -1;

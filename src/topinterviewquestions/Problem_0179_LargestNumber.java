@@ -7,7 +7,7 @@ public class Problem_0179_LargestNumber {
 
 	public static class MyComparator implements Comparator<String> {
 
-		@Override
+		@Override//这个是关键
 		public int compare(String o1, String o2) {
 			return (o2 + o1).compareTo(o1 + o2);
 		}
@@ -16,17 +16,24 @@ public class Problem_0179_LargestNumber {
 
 	public String largestNumber(int[] nums) {
 		String[] strs = new String[nums.length];
+
 		for (int i = 0; i < nums.length; i++) {
 			strs[i] = String.valueOf(nums[i]);
 		}
+
 		Arrays.sort(strs, new MyComparator());
 		StringBuilder builder = new StringBuilder();
+
 		for (String str : strs) {
 			builder.append(str);
 		}
+
 		String ans = builder.toString();
 		char[] str = ans.toCharArray();
+
 		int index = -1;
+
+		//鸡肋,判firsht0用的
 		for (int i = 0; i < str.length; i++) {
 			if (str[i] != '0') {
 				index = i;

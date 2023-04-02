@@ -25,7 +25,9 @@ public class Problem_0116_PopulatingNextRightPointersInEachNode {
 		}
 
 		public void offer(Node cur) {
+
 			size++;
+
 			if (head == null) {
 				head = cur;
 				tail = cur;
@@ -49,14 +51,18 @@ public class Problem_0116_PopulatingNextRightPointersInEachNode {
 		if (root == null) {
 			return root;
 		}
+
 		MyQueue queue = new MyQueue();
 		queue.offer(root);
+
 		while (!queue.isEmpty()) {
 			// 第一个弹出的节点
 			Node pre = null;
 			int size = queue.size;
+
 			for (int i = 0; i < size; i++) {
 				Node cur = queue.poll();
+
 				if (cur.left != null) {
 					queue.offer(cur.left);
 				}

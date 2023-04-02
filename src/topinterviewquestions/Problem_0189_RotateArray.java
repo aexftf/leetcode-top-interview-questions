@@ -4,11 +4,14 @@ public class Problem_0189_RotateArray {
 
 	public void rotate1(int[] nums, int k) {
 		int N = nums.length;
+
 		k = k % N;
+
 		reverse(nums, 0, N - k - 1);
 		reverse(nums, N - k, N - 1);
 		reverse(nums, 0, N - 1);
 	}
+
 
 	public static void reverse(int[] nums, int L, int R) {
 		while (L < R) {
@@ -17,6 +20,16 @@ public class Problem_0189_RotateArray {
 			nums[R--] = tmp;
 		}
 	}
+
+
+
+
+
+
+
+
+
+	//---------------------------------------------------------
 
 	public static void rotate2(int[] nums, int k) {
 		int N = nums.length;

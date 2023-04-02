@@ -9,6 +9,7 @@ package topinterviewquestions;
 public class Problem_0395_LongestSubstringWithAtLeastKRepeatingCharacters {
 
 	public static int longestSubstring1(String s, int k) {
+
 		char[] str = s.toCharArray();
 		int N = str.length;
 		int max = 0;
@@ -25,7 +26,9 @@ public class Problem_0395_LongestSubstringWithAtLeastKRepeatingCharacters {
 				if (count[str[j]] == k - 1) {
 					satisfy++;
 				}
+
 				count[str[j]]++;
+
 				if (collect == satisfy) {
 					max = Math.max(max, j - i + 1);
 				}

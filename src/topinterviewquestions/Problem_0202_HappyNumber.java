@@ -6,13 +6,15 @@ public class Problem_0202_HappyNumber {
 
     public static boolean isHappy1(int n) {
 		HashSet<Integer> set = new HashSet<>();
+		//X平方+X平方==1则是快乐数
 		while (n != 1) {
 			int sum = 0;
-			while (n != 0) {
+			while (n != 0) { //反复求
 				int r = n % 10;
 				sum += r * r;
 				n /= 10;
 			}
+
 			n = sum;
 			if (set.contains(n)) {
 				break;
@@ -21,6 +23,16 @@ public class Problem_0202_HappyNumber {
 		}
 		return n == 1;
 	}
+
+
+
+
+
+
+
+
+
+
 
 	public static boolean isHappy2(int n) {
 		while (n != 1 && n != 4) {

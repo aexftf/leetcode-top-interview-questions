@@ -1,12 +1,12 @@
 package topinterviewquestions;
 
 public class Problem_0348_DesignTicTacToe {
-
+//3*3矩阵
 	class TicTacToe {
 		private int[][] rows;
 		private int[][] cols;
-		private int[] leftUp;
-		private int[] rightUp;
+		private int[] leftUp;//对角线
+		private int[] rightUp;//对角线
 		private boolean[][] matrix;
 		private int N;
 
@@ -23,9 +23,11 @@ public class Problem_0348_DesignTicTacToe {
 			if (matrix[row][col]) {
 				return 0;
 			}
+
 			matrix[row][col] = true;
 			rows[row][player]++;
 			cols[col][player]++;
+
 			if (row == col) {
 				leftUp[player]++;
 			}

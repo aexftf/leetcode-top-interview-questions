@@ -6,6 +6,7 @@ public class Problem_0387_FirstUniqueCharacterInString {
 		char[] str = s.toCharArray();
 		int N = str.length;
 		int count[] = new int[26];
+
 		for (int i = 0; i < N; i++) {
 			count[str[i] - 'a']++;
 		}

@@ -1,5 +1,11 @@
 package topinterviewquestions;
 
+
+//给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+//
+//请你将两个数相加，并以相同形式返回一个表示和的链表。
+//
+//你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
 public class Problem_0002_AddTwoNumbers {
 
 	// 不要提交这个类描述
@@ -17,17 +23,22 @@ public class Problem_0002_AddTwoNumbers {
 		int n1 = 0;
 		int n2 = 0;
 		int n = 0;
+
 		ListNode c1 = head1;
 		ListNode c2 = head2;
 		ListNode node = null;
 		ListNode pre = null;
+
 		while (c1 != null || c2 != null) {
 			n1 = c1 != null ? c1.val : 0;
 			n2 = c2 != null ? c2.val : 0;
+
 			n = n1 + n2 + ca;
 			pre = node;
+
 			node = new ListNode(n % 10);
 			node.next = pre;
+
 			ca = n / 10;
 			c1 = c1 != null ? c1.next : null;
 			c2 = c2 != null ? c2.next : null;
@@ -43,6 +54,7 @@ public class Problem_0002_AddTwoNumbers {
 	public static ListNode reverseList(ListNode head) {
 		ListNode pre = null;
 		ListNode next = null;
+
 		while (head != null) {
 			next = head.next;
 			head.next = pre;
@@ -51,5 +63,9 @@ public class Problem_0002_AddTwoNumbers {
 		}
 		return pre;
 	}
+
+
+
+
 
 }

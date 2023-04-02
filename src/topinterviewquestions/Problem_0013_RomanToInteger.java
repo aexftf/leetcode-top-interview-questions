@@ -4,7 +4,9 @@ public class Problem_0013_RomanToInteger {
 
 	public static int romanToInt(String s) {
 		int nums[] = new int[s.length()];
+
 		for (int i = 0; i < s.length(); i++) {
+
 			switch (s.charAt(i)) {
 			case 'M':
 				nums[i] = 1000;
@@ -29,7 +31,9 @@ public class Problem_0013_RomanToInteger {
 				break;
 			}
 		}
+
 		int sum = 0;
+		//规律罗马数字前面一个字符小于后面一个则减去，否则不能拼成一个完整的数字，则加上。
 		for (int i = 0; i < nums.length - 1; i++) {
 			if (nums[i] < nums[i + 1]) {
 				sum -= nums[i];

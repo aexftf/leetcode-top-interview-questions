@@ -6,6 +6,8 @@ import java.util.Stack;
 
 public class Problem_0341_FlattenNestedListIterator {
 
+
+
 	// 不要提交这个接头类
 	public interface NestedInteger {
 
@@ -24,6 +26,12 @@ public class Problem_0341_FlattenNestedListIterator {
 		public List<NestedInteger> getList();
 	}
 
+
+
+
+
+
+	//实现
 	public class NestedIterator implements Iterator<Integer> {
 
 		private List<NestedInteger> list;

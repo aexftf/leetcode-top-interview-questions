@@ -1,7 +1,7 @@
 package topinterviewquestions.tree;
 
 public class Problem_0101_SymmetricTree {
-
+//so easy
 	public static class TreeNode {
 		int val;
 		TreeNode left;
@@ -18,6 +18,7 @@ public class Problem_0101_SymmetricTree {
 		if (head1 == null && head2 == null) {
 			return true;
 		}
+
 		if (head1 != null && head2 != null) {
 			return head1.val == head2.val 
 					&& isMirror(head1.left, head2.right) 

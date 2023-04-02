@@ -2,6 +2,32 @@ package topinterviewquestions;
 
 public class Problem_0053_MaximumSubarray {
 
+
+
+
+
+
+
+	public static int maxSubArray(int[] nums) {
+		int cur = 0;
+		int max = Integer.MIN_VALUE;
+
+		for (int i = 0; i < nums.length; i++) {
+			cur += nums[i];
+			max = Math.max(max, cur);
+			cur = cur < 0 ? 0 : cur;
+		}
+		return max;
+	}
+
+
+
+
+
+
+
+
+	//动态规划版本，没意思
 	public static int maxSum(int[] nums) {
 		int N = nums.length;
 		// dp[i] 含义：子数组必须以i结尾的时候，所有可以得到的子数组中，最大累加和是多少？
@@ -17,6 +43,12 @@ public class Problem_0053_MaximumSubarray {
 		return max;
 	}
 
+
+
+
+
+
+	//动态规划版本
 	public static int maxSumFollowUp(int[] arr) {
 		if (arr == null) {
 			return 0;
@@ -44,15 +76,8 @@ public class Problem_0053_MaximumSubarray {
 		return dp[N-1];
 	}
 
-	public static int maxSubArray(int[] nums) {
-		int cur = 0;
-		int max = Integer.MIN_VALUE;
-		for (int i = 0; i < nums.length; i++) {
-			cur += nums[i];
-			max = Math.max(max, cur);
-			cur = cur < 0 ? 0 : cur;
-		}
-		return max;
-	}
+
+
+
 
 }

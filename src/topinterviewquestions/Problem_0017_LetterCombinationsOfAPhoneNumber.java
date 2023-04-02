@@ -19,11 +19,15 @@ public class Problem_0017_LetterCombinationsOfAPhoneNumber {
 	// "23"
 	public static List<String> letterCombinations(String digits) {
 		List<String> ans = new ArrayList<>();
+
 		if (digits == null || digits.length() == 0) {
 			return ans;
 		}
+
 		char[] str = digits.toCharArray();
 		char[] path = new char[str.length];
+
+		//解法：暴力递归
 		process(str, 0, path, ans);
 		return ans;
 	}
@@ -36,6 +40,7 @@ public class Problem_0017_LetterCombinationsOfAPhoneNumber {
 			ans.add(String.valueOf(path));
 		} else {
 			char[] cands = phone[str[index] - '2'];
+
 			for (char cur : cands) {
 				path[index] = cur;
 				process(str, index + 1, path, ans);

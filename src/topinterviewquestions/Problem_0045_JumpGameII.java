@@ -6,9 +6,11 @@ public class Problem_0045_JumpGameII {
 		if (arr == null || arr.length == 0) {
 			return 0;
 		}
+
 		int step = 0;
 		int cur = 0;
 		int next = arr[0];
+
 		for (int i = 1; i < arr.length; i++) {
 //            if(next >= arr.length - 1){
 //                return step + 1;
@@ -19,6 +21,7 @@ public class Problem_0045_JumpGameII {
 			}
 			next = Math.max(next, i + arr[i]);
 		}
+
 		return step;
 	}
 

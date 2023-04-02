@@ -2,12 +2,15 @@ package topinterviewquestions;
 
 public class Problem_0048_RotateImage {
 
+	//正方形
 	public static void rotate(int[][] matrix) {
 		// matrix.len == matrix[0].len
 		int tR = 0;
 		int tC = 0;
+
 		int dR = matrix.length - 1;
 		int dC = matrix[0].length - 1;
+
 		while (tR < dR) {
 			rotateEdge(matrix, tR++, tC++, dR--, dC--);
 		}

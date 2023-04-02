@@ -1,7 +1,7 @@
 package topinterviewquestions;
 
 public class Problem_0021_MergeTwoSortedLists {
-
+//背诵
 	public static class ListNode {
 		public int val;
 		public ListNode next;
@@ -11,11 +11,14 @@ public class Problem_0021_MergeTwoSortedLists {
 		if (l1 == null || l2 == null) {
 			return l1 == null ? l2 : l1;
 		}
+		//
 		ListNode head = l1.val <= l2.val ? l1 : l2;
 		ListNode cur1 = head.next;
 		ListNode cur2 = head == l1 ? l2 : l1;
 		ListNode pre = head;
+
 		while (cur1 != null && cur2 != null) {
+			//谁小放下去
 			if (cur1.val <= cur2.val) {
 				pre.next = cur1;
 				cur1 = cur1.next;
@@ -25,6 +28,7 @@ public class Problem_0021_MergeTwoSortedLists {
 			}
 			pre = pre.next;
 		}
+
 		pre.next = cur1 != null ? cur1 : cur2;
 		return head;
 	}

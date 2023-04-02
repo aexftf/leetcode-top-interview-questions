@@ -2,8 +2,10 @@ package topinterviewquestions;
 
 public class Problem_0079_WordSearch {
 
+	//递归，挨个点尝试
 	public static boolean exist(char[][] board, String word) {
 		char[] w = word.toCharArray();
+		//k到了哪一步了
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[0].length; j++) {
 				if (process(board, i, j, w, 0)) {

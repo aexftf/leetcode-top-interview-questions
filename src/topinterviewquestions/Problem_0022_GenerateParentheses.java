@@ -2,13 +2,26 @@ package topinterviewquestions;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
+//
+// 
+//
+//示例 1：
+//
+//输入：n = 3
+//输出：["((()))","(()())","(())()","()(())","()()()"]
+//
+//来源：力扣（LeetCode）
+//链接：https://leetcode.cn/problems/generate-parentheses
+//著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 public class Problem_0022_GenerateParentheses {
 
 	public static List<String> generateParenthesis(int n) {
-		char[] path = new char[n << 1];
+		char[] path = new char[n *2];//n << 1
 		List<String> ans = new ArrayList<>();
+
 		process(path, 0, 0, n, ans);
+
 		return ans;
 	}
 
@@ -21,6 +34,7 @@ public class Problem_0022_GenerateParentheses {
 		if (index == path.length) {
 			ans.add(String.valueOf(path));
 		} else {
+
 			if (leftRest > 0) {
 				path[index] = '(';
 				process(path, index + 1, leftMinusRight + 1, leftRest - 1, ans);
@@ -31,6 +45,19 @@ public class Problem_0022_GenerateParentheses {
 			}
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	// 不剪枝的做法
 	public static List<String> generateParenthesis2(int n) {

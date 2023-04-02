@@ -6,12 +6,14 @@ public class Problem_0340_LongestSubstringWithAtMostKDistinctCharacters {
 		if (s == null || s.length() == 0 || k < 1) {
 			return 0;
 		}
+
 		char[] str = s.toCharArray();
 		int N = str.length;
 		int[] count = new int[256];
 		int diff = 0;
 		int R = 0;
 		int ans = 0;
+
 		for (int i = 0; i < N; i++) {
 			// R 窗口的右边界
 			while (R < N && (diff < k || (diff == k && count[str[R]] > 0))) {

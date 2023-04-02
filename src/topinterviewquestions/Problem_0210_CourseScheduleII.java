@@ -24,13 +24,17 @@ public class Problem_0210_CourseScheduleII {
 		for (int i = 0; i < numCourses; i++) {
 			ans[i] = i;
 		}
+
 		if (prerequisites == null || prerequisites.length == 0) {
 			return ans;
 		}
+
 		HashMap<Integer, Node> nodes = new HashMap<>();
+
 		for (int[] arr : prerequisites) {
 			int to = arr[0];
 			int from = arr[1];
+
 			if (!nodes.containsKey(to)) {
 				nodes.put(to, new Node(to));
 			}
@@ -43,7 +47,9 @@ public class Problem_0210_CourseScheduleII {
 			t.in++;
 		}
 		int index = 0;
+
 		Queue<Node> zeroInQueue = new LinkedList<>();
+
 		for (int i = 0; i < numCourses; i++) {
 			if (!nodes.containsKey(i)) {
 				ans[index++] = i;
@@ -55,10 +61,12 @@ public class Problem_0210_CourseScheduleII {
 		}
 		int needPrerequisiteNums = nodes.size();
 		int count = 0;
+
 		while (!zeroInQueue.isEmpty()) {
 			Node cur = zeroInQueue.poll();
 			ans[index++] = cur.name;
 			count++;
+
 			for (Node next : cur.nexts) {
 				if (--next.in == 0) {
 					zeroInQueue.add(next);

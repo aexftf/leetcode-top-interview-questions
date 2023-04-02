@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 public class Problem_0146_LRUCache {
 
+	//这道题的个性化参数
 	private MyCache<Integer, Integer> cache;
 
 	public Problem_0146_LRUCache(int capacity) {
@@ -35,6 +36,7 @@ public class Problem_0146_LRUCache {
 			this.value = value;
 		}
 	}
+
 
 	public static class NodeDoubleLinkedList<K, V> {
 		private Node<K, V> head;

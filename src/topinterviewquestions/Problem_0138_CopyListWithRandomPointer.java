@@ -1,7 +1,11 @@
 package topinterviewquestions;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Problem_0138_CopyListWithRandomPointer {
 
+	//影子链表，深拷贝
 	public static class Node {
 		int val;
 		Node next;
@@ -14,7 +18,30 @@ public class Problem_0138_CopyListWithRandomPointer {
 		}
 	}
 
-	public static Node copyRandomList(Node head) {
+
+
+	Map<Node, Node> cachedNode = new HashMap<Node, Node>();
+
+	public Node copyRandomList(Node head) {
+		if (head == null) {
+			return null;
+		}
+		if (!cachedNode.containsKey(head)) {
+			Node headNew = new Node(head.val);
+			cachedNode.put(head, headNew);
+			headNew.next = copyRandomList(head.next);
+			headNew.random = copyRandomList(head.random);
+		}
+		return cachedNode.get(head);
+	}
+
+
+
+
+
+
+
+	public static Node copyRandomList2(Node head) {
 		if (head == null) {
 			return null;
 		}
@@ -22,6 +49,7 @@ public class Problem_0138_CopyListWithRandomPointer {
 		Node next = null;
 		// 1 -> 2 -> 3 -> null
 		// 1 -> 1' -> 2 -> 2' -> 3 -> 3'
+
 		while (cur != null) {
 			next = cur.next;
 			cur.next = new Node(cur.val);
@@ -40,6 +68,7 @@ public class Problem_0138_CopyListWithRandomPointer {
 		}
 		Node res = head.next;
 		cur = head;
+
 		// 老 新 混在一起，next方向上，random正确
 		// next方向上，把新老链表分离
 		while (cur != null) {

@@ -11,19 +11,36 @@ public class Problem_0094_BinaryTreeInorderTraversal {
 		TreeNode right;
 	}
 
+
+
+
+
+
+
+
+
 	public static List<Integer> inorderTraversal(TreeNode root) {
+
+
+		TreeNode treeNode = new TreeNode();
+
+
 		List<Integer> ans = new ArrayList<>();
 		if (root == null) {
 			return ans;
 		}
+
 		TreeNode cur = root;
 		TreeNode mostRight = null;
+
 		while (cur != null) {
 			mostRight = cur.left;
+
 			if (mostRight != null) {
 				while (mostRight.right != null && mostRight.right != cur) {
 					mostRight = mostRight.right;
 				}
+
 				if (mostRight.right == null) {
 					mostRight.right = cur;
 					cur = cur.left;

@@ -7,6 +7,7 @@ public class Problem_0139_WordBreak {
 
 	public static boolean wordBreak(String s, List<String> wordDict) {
 		Node root = new Node();
+
 		for (String str : wordDict) {
 			char[] chs = str.toCharArray();
 			Node node = root;
@@ -24,6 +25,7 @@ public class Problem_0139_WordBreak {
 		int N = str.length;
 		boolean[] dp = new boolean[N + 1];
 		dp[N] = true;
+
 		for (int i = N - 1; i >= 0; i--) {
 			Node cur = root;
 			for (int end = i; end < N; end++) {
@@ -40,6 +42,11 @@ public class Problem_0139_WordBreak {
 		}
 		return dp[0];
 	}
+
+
+
+
+
 
 	public static boolean wordBreak2(String s, List<String> wordDict) {
 		return process(s, 0, new HashSet<>(wordDict)) != 0;

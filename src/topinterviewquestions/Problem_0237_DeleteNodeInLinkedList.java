@@ -2,7 +2,7 @@ package topinterviewquestions;
 
 public class Problem_0237_DeleteNodeInLinkedList {
 
-
+//
 	public void deleteNode(ListNode node) {
 		node.val = node.next.val;
 		node.next = node.next.next;

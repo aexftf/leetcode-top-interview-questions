@@ -31,13 +31,18 @@ public class Problem_0056_MergeIntervals {
 			return new int[0][0];
 		}
 		Range[] arr = new Range[intervals.length];
+
 		for (int i = 0; i < intervals.length; i++) {
 			arr[i] = new Range(intervals[i][0], intervals[i][1]);
 		}
 		Arrays.sort(arr, new RangeComparator());
+
 		ArrayList<Range> ans = new ArrayList<>();
+
 		int s = arr[0].start;
 		int e = arr[0].end;
+
+		//main
 		for (int i = 1; i < arr.length; i++) {
 			if (arr[i].start > e) {
 				ans.add(new Range(s, e));
@@ -51,10 +56,13 @@ public class Problem_0056_MergeIntervals {
 		return generateMatrix(ans);
 	}
 
+	//还原成二维数组
 	public static int[][] generateMatrix(ArrayList<Range> list) {
 		int[][] matrix = new int[list.size()][2];
+
 		for (int i = 0; i < list.size(); i++) {
-			matrix[i] = new int[] { list.get(i).start, list.get(i).end };
+			matrix[i] = new int[] {
+					list.get(i).start, list.get(i).end };
 		}
 		return matrix;
 	}

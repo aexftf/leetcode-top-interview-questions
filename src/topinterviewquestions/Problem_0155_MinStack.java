@@ -7,7 +7,7 @@ import java.util.Stack;
  * 然后把类名、构造方法名从Problem_0155_MinStack改为MinStack即可
  */
 public class Problem_0155_MinStack {
-
+//用两个栈实现，一个存数据，一个存最小值
 	private Stack<Integer> data;
 	private Stack<Integer> min;
 

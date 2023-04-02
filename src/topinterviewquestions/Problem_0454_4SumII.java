@@ -21,9 +21,13 @@ public class Problem_0454_4SumII {
 			}
 		}
 		int ans = 0;
+
 		for (int i = 0; i < C.length; i++) {
+
 			for (int j = 0; j < D.length; j++) {
+
 				sum = C[i] + D[j];
+
 				if (map.containsKey(-sum)) {
 					ans += map.get(-sum);
 				}

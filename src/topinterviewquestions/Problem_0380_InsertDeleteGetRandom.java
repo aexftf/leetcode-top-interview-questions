@@ -3,7 +3,7 @@ package topinterviewquestions;
 import java.util.HashMap;
 
 public class Problem_0380_InsertDeleteGetRandom {
-
+//O（1）
 	public class RandomizedSet {
 
 		private HashMap<Integer, Integer> keyIndexMap;

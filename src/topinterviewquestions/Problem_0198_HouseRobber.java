@@ -13,11 +13,23 @@ public class Problem_0198_HouseRobber {
 		int[] dp = new int[N];
 		dp[0] = nums[0];
 		dp[1] = Math.max(nums[0], nums[1]);
+
 		for (int i = 2; i < N; i++) {
 			dp[i] = Math.max(dp[i - 1], nums[i] + dp[i - 2]);
 		}
 		return dp[N - 1];
 	}
+
+
+
+
+
+
+
+
+
+
+
 
 	public static int rob2(int[] nums) {
 		if (nums == null || nums.length == 0) {

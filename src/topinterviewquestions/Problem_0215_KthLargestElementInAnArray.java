@@ -1,7 +1,7 @@
 package topinterviewquestions;
 
 public class Problem_0215_KthLargestElementInAnArray {
-
+//经典面试13
 	public int findKthLargest(int[] nums, int k) {
 		return minKth(nums, nums.length + 1 - k);
 	}
@@ -14,6 +14,7 @@ public class Problem_0215_KthLargestElementInAnArray {
 		if (L == R) {
 			return arr[L];
 		}
+
 		int pivot = arr[L + (int) (Math.random() * (R - L + 1))];
 		int[] range = partition(arr, L, R, pivot);
 		if (index >= range[0] && index <= range[1]) {
@@ -29,6 +30,7 @@ public class Problem_0215_KthLargestElementInAnArray {
 		int less = L - 1;
 		int more = R + 1;
 		int cur = L;
+
 		while (cur < more) {
 			if (arr[cur] < pivot) {
 				swap(arr, ++less, cur++);

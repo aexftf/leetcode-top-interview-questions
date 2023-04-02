@@ -14,6 +14,7 @@ public class Problem_0309_BestTimeToBuyAndSellStockWithCooldown {
 		if (index >= prices.length) {
 			return 0;
 		}
+
 		if (buy) {
 			int noSell = process1(prices, true, index + 1, buyPrices);
 			int yesSell = prices[index] - buyPrices + process1(prices, false, index + 2, 0);
@@ -24,6 +25,14 @@ public class Problem_0309_BestTimeToBuyAndSellStockWithCooldown {
 			return Math.max(noBuy, yesBuy);
 		}
 	}
+
+
+
+
+
+
+
+
 
 	// 最优尝试如下：
 	// buy[i] : 在0...i范围上，最后一次操作是buy动作，
@@ -62,11 +71,15 @@ public class Problem_0309_BestTimeToBuyAndSellStockWithCooldown {
 		if (prices.length < 2) {
 			return 0;
 		}
+
 		int N = prices.length;
+
 		int[] buy = new int[N];
 		int[] sell = new int[N];
+
 		buy[1] = Math.max(-prices[0], -prices[1]);
 		sell[1] = Math.max(0, prices[1] - prices[0]);
+
 		for (int i = 2; i < N; i++) {
 			buy[i] = Math.max(buy[i - 1], sell[i - 2] - prices[i]);
 			sell[i] = Math.max(sell[i - 1], buy[i - 1] + prices[i]);
@@ -74,14 +87,28 @@ public class Problem_0309_BestTimeToBuyAndSellStockWithCooldown {
 		return sell[N - 1];
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
 	// 最优解就是方法2的空间优化而已
 	public static int maxProfit3(int[] prices) {
 		if (prices.length < 2) {
 			return 0;
 		}
+
 		int buy1 = Math.max(-prices[0], -prices[1]);
 		int sell1 = Math.max(0, prices[1] - prices[0]);
 		int sell2 = 0;
+
 		for (int i = 2; i < prices.length; i++) {
 			int tmp = sell1;
 			sell1 = Math.max(sell1, buy1 + prices[i]);

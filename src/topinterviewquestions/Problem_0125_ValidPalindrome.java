@@ -6,9 +6,12 @@ public class Problem_0125_ValidPalindrome {
 		if (s == null || s.length() == 0) {
 			return true;
 		}
+
 		char[] str = s.toCharArray();
 		int L = 0;
 		int R = str.length - 1;
+
+
 		while (L < R) {
 			if (validChar(str[L]) && validChar(str[R])) {
 				if (!equal(str[L], str[R])) {

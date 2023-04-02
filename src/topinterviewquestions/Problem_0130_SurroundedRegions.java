@@ -13,6 +13,7 @@ public class Problem_0130_SurroundedRegions {
 				}
 			}
 		}
+
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[0].length; j++) {
 				char can = board[i][j];
@@ -43,14 +44,23 @@ public class Problem_0130_SurroundedRegions {
 		if (i < 0 || i == board.length || j < 0 || j == board[0].length) {
 			return;
 		}
+
 		if (board[i][j] == '.') {
 			board[i][j] = can == 'T' ? 'X' : 'O';
+
 			change(board, i - 1, j, can);
 			change(board, i + 1, j, can);
 			change(board, i, j - 1, can);
 			change(board, i, j + 1, can);
 		}
 	}
+
+
+
+
+
+
+
 
 	// 从边界开始感染的方法，比第一种方法更好
 	public static void solve2(char[][] board) {
@@ -59,6 +69,7 @@ public class Problem_0130_SurroundedRegions {
 		}
 		int N = board.length;
 		int M = board[0].length;
+
 		for (int j = 0; j < M; j++) {
 			if (board[0][j] == 'O') {
 				free(board, 0, j);
@@ -75,6 +86,7 @@ public class Problem_0130_SurroundedRegions {
 				free(board, i, M - 1);
 			}
 		}
+
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
 				if (board[i][j] == 'O') {
@@ -92,6 +104,7 @@ public class Problem_0130_SurroundedRegions {
 			return;
 		}
 		board[i][j] = 'F';
+
 		free(board, i + 1, j);
 		free(board, i - 1, j);
 		free(board, i, j + 1);

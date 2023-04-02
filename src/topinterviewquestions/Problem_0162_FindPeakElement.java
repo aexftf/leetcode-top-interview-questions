@@ -7,15 +7,19 @@ public class Problem_0162_FindPeakElement {
 		if (N < 2) {
 			return 0;
 		}
+
 		if (nums[0] > nums[1]) {
 			return 0;
 		}
+
 		if (nums[N - 1] > nums[N - 2]) {
 			return N - 1;
 		}
+
 		int L = 1;
 		int R = N - 2;
 		int M = 0;
+
 		while (L < R) {
 			M = (L + R) / 2;
 			if (nums[M - 1] < nums[M] && nums[M] > nums[M + 1]) {
