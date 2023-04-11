@@ -1,4 +1,4 @@
-package topinterviewquestions;
+package math_problems;
 
 public class Problem_0050_PowXN {
 //...

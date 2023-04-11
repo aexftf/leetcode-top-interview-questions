@@ -15,6 +15,7 @@ public class Problem_0395_LongestSubstringWithAtLeastKRepeatingCharacters {
 		int max = 0;
 
 		for (int i = 0; i < N; i++) {
+
 			int[] count = new int[256];
 			int collect = 0;
 			int satisfy = 0;

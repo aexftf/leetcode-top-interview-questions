@@ -23,7 +23,6 @@ public class Problem_0091_DecodeWays {
 //
 //来源：力扣（LeetCode）
 //链接：https://leetcode.cn/problems/decode-ways
-//著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 	public static int numDecodings1(String s) {
 		if (s == null || s.length() == 0) {
 			return 0;
@@ -32,6 +31,7 @@ public class Problem_0091_DecodeWays {
 		char[] str = s.toCharArray();
 		return process(str, 0);
 	}
+
 
 	// 潜台词：str[0...index-1]已经转化完了，不用操心了
 	// str[index....] 能转出多少有效的，返回方法数
@@ -57,13 +57,18 @@ public class Problem_0091_DecodeWays {
 		// 双转(index index + 1) "23" -> 23 "17" -> 17
 		int num = (str[index] - '0') * 10 + str[index + 1] - '0';
 
-		// num > 26
+		// num > 26越界返回
 		if (num <= 26) {
 			ways += process(str, index + 2);
 		}
 
 		return ways;
 	}
+
+
+
+
+
 
 
 

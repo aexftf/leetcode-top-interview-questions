@@ -1,7 +1,7 @@
-package topinterviewquestions;
+package topinterviewquestions.tree;
 
 public class Problem_0104_MaximumDepthOfBinaryTree {
-
+    //简单
 	/*
 	 * 注意最小高度比这个复杂，要额外小心判断空
 	 * */

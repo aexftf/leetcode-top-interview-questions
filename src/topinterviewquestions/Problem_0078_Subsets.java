@@ -9,6 +9,7 @@ public class Problem_0078_Subsets {
 //
 //解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
 	public static List<List<Integer>> subsets(int[] nums) {
+
 		List<List<Integer>> ans = new ArrayList<>();
 		LinkedList<Integer> path = new LinkedList<>();
 
@@ -31,6 +32,7 @@ public class Problem_0078_Subsets {
 
 		}
 	}
+
 
 	public static ArrayList<Integer> copy(LinkedList<Integer> path) {
 		ArrayList<Integer> ans = new ArrayList<>();

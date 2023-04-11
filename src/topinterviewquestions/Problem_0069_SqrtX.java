@@ -11,6 +11,7 @@ public class Problem_0069_SqrtX {
 		if (x < 3) {
 			return 1;
 		}
+
 		long ans = 1;
 
 		long L = 1;
@@ -19,6 +20,7 @@ public class Problem_0069_SqrtX {
 
 		while (L <= R) {
 			M = (L + R) / 2;
+
 			if (M * M <= x) {
 				ans = M;
 				L = M + 1;

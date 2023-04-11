@@ -1,7 +1,7 @@
 package topinterviewquestions;
 //突破一切阻碍，没什么不可突破
 public class Problem_0088_MergeSortedArray {
-
+//  easy
 	public static void merge(int[] nums1, int m, int[] nums2, int n) {
 		int index = nums1.length;
 

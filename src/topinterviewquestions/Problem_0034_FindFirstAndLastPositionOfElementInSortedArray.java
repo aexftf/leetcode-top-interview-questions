@@ -13,7 +13,7 @@ public class Problem_0034_FindFirstAndLastPositionOfElementInSortedArray {
 		ans[1] = findLast(nums, target);
 		return ans;
 	}
-
+//
 	public static int findFirst(int[] arr, int num) {
 		int L = 0;
 		int R = arr.length - 1;
@@ -21,7 +21,7 @@ public class Problem_0034_FindFirstAndLastPositionOfElementInSortedArray {
 		int mid = 0;
 
 		while (L <= R) {
-			mid = L + ((R - L) >> 1);
+			mid = (L + R )/2;
 
 			if (arr[mid] < num) {
 				L = mid + 1;
@@ -44,7 +44,7 @@ public class Problem_0034_FindFirstAndLastPositionOfElementInSortedArray {
 		int mid = 0;
 
 		while (L <= R) {
-			mid = L + ((R - L) >> 1);
+			mid = (L + R )/2;
 			if (arr[mid] < num) {
 				L = mid + 1;
 			} else if (arr[mid] > num) {

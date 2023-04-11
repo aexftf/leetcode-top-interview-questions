@@ -11,6 +11,7 @@ public class Problem_0054_SpiralMatrix {
 		if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
 			return ans;
 		}
+
 		int a = 0;
 		int b = 0;
 		int c = matrix.length - 1;

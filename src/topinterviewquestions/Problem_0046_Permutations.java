@@ -1,6 +1,7 @@
 package topinterviewquestions;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 //给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
@@ -55,6 +56,7 @@ public class Problem_0046_Permutations {
 	public static void process(int[] nums, int index, List<List<Integer>> ans) {
 		if (index == nums.length) {
 			ArrayList<Integer> cur = new ArrayList<>();
+
 			for (int num : nums) {
 				cur.add(num);
 			}
@@ -62,7 +64,9 @@ public class Problem_0046_Permutations {
 		} else {
 			for (int j = index; j < nums.length; j++) {
 				swap(nums, index, j);
+
 				process(nums, index + 1, ans);
+
 				swap(nums, index, j);
 			}
 		}

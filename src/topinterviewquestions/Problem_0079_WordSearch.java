@@ -6,6 +6,7 @@ public class Problem_0079_WordSearch {
 	public static boolean exist(char[][] board, String word) {
 		char[] w = word.toCharArray();
 		//k到了哪一步了
+
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[0].length; j++) {
 				if (process(board, i, j, w, 0)) {
@@ -31,6 +32,7 @@ public class Problem_0079_WordSearch {
 		}
 		char tmp = b[i][j];
 		b[i][j] = 0;
+
 		boolean ans =  process(b, i - 1, j, w, k + 1) 
 				|| process(b, i + 1, j, w, k + 1) 
 				|| process(b, i, j - 1, w, k + 1)

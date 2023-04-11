@@ -10,7 +10,7 @@ public class Problem_0036_ValidSudoku {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				//规律：就是这个数值
-				int bid = 3 * (i / 3) + (j / 3);
+				int bid = 3 * (i / 3) + (j / 3);//多好记对吧，两个除三的加起来，第一个还需要整体乘3
 
 				if (board[i][j] != '.') {//这判断纯扯淡，就是证明别逗你玩有效给的。
 

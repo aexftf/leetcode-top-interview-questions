@@ -1,4 +1,4 @@
-package topinterviewquestions;
+package math_problems;
 //面试不考
 public class Problem_0029_DivideTwoIntegers {
 

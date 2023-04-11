@@ -55,6 +55,7 @@ public class Problem_0148_SortList {
 
 		while (teamFirst != null) {
 			pass++;
+
 			if (pass <= len) {
 				le = teamFirst;
 			}

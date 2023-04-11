@@ -1,7 +1,7 @@
 package topinterviewquestions;
 
 import java.util.HashMap;
-
+//最长连续序列
 public class Problem_0128_LongestConsecutiveSequence {
 
 	public static int longestConsecutive(int[] nums) {

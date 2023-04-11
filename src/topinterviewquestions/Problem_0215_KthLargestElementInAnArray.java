@@ -16,7 +16,9 @@ public class Problem_0215_KthLargestElementInAnArray {
 		}
 
 		int pivot = arr[L + (int) (Math.random() * (R - L + 1))];
+
 		int[] range = partition(arr, L, R, pivot);
+
 		if (index >= range[0] && index <= range[1]) {
 			return arr[index];
 		} else if (index < range[0]) {

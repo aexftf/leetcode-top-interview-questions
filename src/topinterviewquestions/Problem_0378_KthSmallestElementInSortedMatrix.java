@@ -46,6 +46,7 @@ public class Problem_0378_KthSmallestElementInSortedMatrix {
 
 			int row = ans.row;
 			int col = ans.col;
+
 			if (row + 1 < N && !set[row + 1][col]) {
 				heap.add(new Node(matrix[row + 1][col], row + 1, col));
 				set[row + 1][col] = true;
@@ -57,6 +58,8 @@ public class Problem_0378_KthSmallestElementInSortedMatrix {
 		}
 		return ans.value;
 	}
+
+
 
 
 

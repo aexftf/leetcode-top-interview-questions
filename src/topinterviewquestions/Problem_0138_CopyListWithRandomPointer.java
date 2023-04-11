@@ -28,7 +28,9 @@ public class Problem_0138_CopyListWithRandomPointer {
 		}
 		if (!cachedNode.containsKey(head)) {
 			Node headNew = new Node(head.val);
+
 			cachedNode.put(head, headNew);
+
 			headNew.next = copyRandomList(head.next);
 			headNew.random = copyRandomList(head.random);
 		}

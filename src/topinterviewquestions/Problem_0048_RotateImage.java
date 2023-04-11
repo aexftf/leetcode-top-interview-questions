@@ -19,7 +19,8 @@ public class Problem_0048_RotateImage {
 	public static void rotateEdge(int[][] m, int tR, int tC, int dR, int dC) {
 		int times = dC - tC;
 		int tmp = 0;
-		for (int i = 0; i != times; i++) { 
+		//好好看看
+		for (int i = 0; i != times; i++) {
 			tmp = m[tR][tC + i];
 			m[tR][tC + i] = m[dR - i][tC];
 			m[dR - i][tC] = m[dR][dC - i];
@@ -27,5 +28,8 @@ public class Problem_0048_RotateImage {
 			m[tR + i][dC] = tmp;
 		}
 	}
+
+
+
 
 }

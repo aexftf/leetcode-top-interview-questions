@@ -85,6 +85,7 @@ public class Problem_0341_FlattenNestedListIterator {
 
 		private boolean findNext(List<NestedInteger> nestedList, Stack<Integer> stack) {
 			int index = stack.pop();
+
 			if (!stack.isEmpty() && findNext(nestedList.get(index).getList(), stack)) {
 				stack.push(index);
 				return true;

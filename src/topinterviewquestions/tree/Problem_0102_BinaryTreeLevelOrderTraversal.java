@@ -1,4 +1,4 @@
-package topinterviewquestions;
+package topinterviewquestions.tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -1,7 +1,7 @@
 package topinterviewquestions;
 
 public class Problem_0125_ValidPalindrome {
-
+//是回文
 	public static boolean isPalindrome(String s) {
 		if (s == null || s.length() == 0) {
 			return true;
@@ -27,6 +27,10 @@ public class Problem_0125_ValidPalindrome {
 		return true;
 	}
 
+
+
+
+	//
 	public static boolean validChar(char c) {
 		return isLetter(c) || isNumber(c);
 	}

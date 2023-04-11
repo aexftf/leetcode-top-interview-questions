@@ -1,15 +1,18 @@
 package topinterviewquestions;
 
 public class Problem_0198_HouseRobber {
-
+//不敢连续偷的房屋大盗
 	public static int rob1(int[] nums) {
 		if (nums == null || nums.length == 0) {
 			return 0;
 		}
+
 		if (nums.length == 1) {
 			return nums[0];
 		}
+
 		int N = nums.length;
+
 		int[] dp = new int[N];
 		dp[0] = nums[0];
 		dp[1] = Math.max(nums[0], nums[1]);

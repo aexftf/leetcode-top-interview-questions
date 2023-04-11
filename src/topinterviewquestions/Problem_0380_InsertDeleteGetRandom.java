@@ -18,6 +18,7 @@ public class Problem_0380_InsertDeleteGetRandom {
 
 		public boolean insert(int val) {
 			if (!keyIndexMap.containsKey(val)) {
+
 				keyIndexMap.put(val, size);
 				indexKeyMap.put(size++, val);
 				return true;
@@ -30,8 +31,10 @@ public class Problem_0380_InsertDeleteGetRandom {
 				int deleteIndex = keyIndexMap.get(val);
 				int lastIndex = --size;
 				int lastKey = indexKeyMap.get(lastIndex);
+
 				keyIndexMap.put(lastKey, deleteIndex);
 				indexKeyMap.put(deleteIndex, lastKey);
+
 				keyIndexMap.remove(val);
 				indexKeyMap.remove(lastIndex);
 				return true;
