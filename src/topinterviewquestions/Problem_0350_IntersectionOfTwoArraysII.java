@@ -8,6 +8,7 @@ public class Problem_0350_IntersectionOfTwoArraysII {
 	public static int[] intersect(int[] nums1, int[] nums2) {
 
 		HashMap<Integer, Integer> map1 = new HashMap<>();
+
 		for (int num : nums1) {
 			if (!map1.containsKey(num)) {
 				map1.put(num, 1);
@@ -17,6 +18,7 @@ public class Problem_0350_IntersectionOfTwoArraysII {
 		}
 
 		HashMap<Integer, Integer> map2 = new HashMap<>();
+
 		for (int num : nums2) {
 			if (!map2.containsKey(num)) {
 				map2.put(num, 1);

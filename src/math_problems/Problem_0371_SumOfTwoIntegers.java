@@ -1,4 +1,4 @@
-package topinterviewquestions;
+package math_problems;
 
 public class Problem_0371_SumOfTwoIntegers {
 //不用加减乘除法实现两数和
