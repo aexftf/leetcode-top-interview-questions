@@ -10,6 +10,7 @@ public class Problem_0340_LongestSubstringWithAtMostKDistinctCharacters {
 		char[] str = s.toCharArray();
 		int N = str.length;
 		int[] count = new int[256];
+
 		int diff = 0;
 		int R = 0;
 		int ans = 0;

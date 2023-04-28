@@ -46,10 +46,6 @@ public class Problem_0202_HappyNumber {
 		return n == 1;
 	}
 
-	public static void main(String[] args) {
-		for (int i = 1; i < 1000; i++) {
-			System.out.println(i + " : " + isHappy1(i));
-		}
-	}
+
 
 }
