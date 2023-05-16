@@ -1,5 +1,5 @@
 package topinterviewquestions;
-
+//缺失的第一个正数
 public class Problem_0041_FirstMissingPositive {
 
 	//必须画图，分三种情况讨论
@@ -23,9 +23,24 @@ public class Problem_0041_FirstMissingPositive {
 	}
 
 
+
+
+
+
+
+
+
+
+
+
+
 	public static void swap(int[] arr, int i, int j) {
 		int tmp = arr[i];
 		arr[i] = arr[j];
 		arr[j] = tmp;
 	}
+
+
+
+
 }

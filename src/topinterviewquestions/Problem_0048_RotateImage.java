@@ -1,5 +1,5 @@
 package topinterviewquestions;
-
+//旋转图像
 public class Problem_0048_RotateImage {
 
 	//正方形

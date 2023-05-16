@@ -1,4 +1,5 @@
 package topinterviewquestions;
+//删除有序数组中的重复项
 //删除重复项,返回新长度
 public class Problem_0026_RemoveDuplicatesFromSortedArray {
 

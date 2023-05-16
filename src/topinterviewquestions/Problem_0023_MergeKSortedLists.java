@@ -5,17 +5,8 @@ import java.util.PriorityQueue;
 //	还要看不太懂
 public class Problem_0023_MergeKSortedLists {
 
-	public static class ListNode {
-		public int val;
-		public ListNode next;
-	}
 
-	public static class ListNodeComparator implements Comparator<ListNode> {
-		@Override
-		public int compare(ListNode o1, ListNode o2) {//小根堆
-			return o1.val - o2.val;
-		}
-	}
+
 
 	public static ListNode mergeKLists(ListNode[] lists) {
 		if (lists == null) {
@@ -49,6 +40,20 @@ public class Problem_0023_MergeKSortedLists {
 			}
 		}
 		return head;
+	}
+
+
+
+	public static class ListNodeComparator implements Comparator<ListNode> {
+		@Override
+		public int compare(ListNode o1, ListNode o2) {//小根堆
+			return o1.val - o2.val;
+		}
+	}
+
+	public static class ListNode {
+		public int val;
+		public ListNode next;
 	}
 
 }

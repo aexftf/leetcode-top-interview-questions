@@ -3,7 +3,7 @@ package topinterviewquestions;
 public class Problem_0019_RemoveNthNodeFromEndofList {
 
 
-//
+//删除链表的倒数第N个节点
 	public static ListNode removeNthFromEnd(ListNode head, int n) {
 		ListNode cur = head;
 		ListNode pre = null;

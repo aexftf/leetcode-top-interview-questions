@@ -2,11 +2,8 @@ package topinterviewquestions;
 
 public class Problem_0021_MergeTwoSortedLists {
 //背诵
-	public static class ListNode {
-		public int val;
-		public ListNode next;
-	}
 
+//合并两个有序链表
 	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 		if (l1 == null || l2 == null) {
 			return l1 == null ? l2 : l1;
@@ -33,4 +30,17 @@ public class Problem_0021_MergeTwoSortedLists {
 		return head;
 	}
 
+
+
+
+
+
+
+
+
+
+	public static class ListNode {
+		public int val;
+		public ListNode next;
+	}
 }

@@ -7,10 +7,10 @@ import java.util.List;
 //给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
 public class Problem_0046_Permutations {
 
-	public static List<List<Integer>> onClass(int[] nums) {
+	public static List<List<Integer>> permutes(int[] nums) {
 		//结果数组
 		List<List<Integer>> ans = new ArrayList<>();
-		//
+		//去重set
 		HashSet<Integer> rest = new HashSet<>();
 		for (int num : nums) {
 			rest.add(num);
@@ -37,6 +37,7 @@ public class Problem_0046_Permutations {
 		}
 	}
 
+//回溯
 	public static HashSet<Integer> cloneExceptNum(HashSet<Integer> rest, int num) {
 		HashSet<Integer> clone = new HashSet<>(rest);
 		clone.remove(num);
@@ -45,7 +46,16 @@ public class Problem_0046_Permutations {
 
 
 
-	//-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+	//------------------------------------------------------------------------
 
 	public static List<List<Integer>> permute(int[] nums) {
 		List<List<Integer>> ans = new ArrayList<>();
@@ -71,6 +81,22 @@ public class Problem_0046_Permutations {
 			}
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	public static void swap(int[] nums, int i, int j) {

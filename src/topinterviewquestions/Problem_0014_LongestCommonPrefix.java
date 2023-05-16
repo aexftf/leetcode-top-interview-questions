@@ -1,5 +1,5 @@
 package topinterviewquestions;
-
+//最长公共前缀
 public class Problem_0014_LongestCommonPrefix {
 //编写一个函数来查找字符串数组中的最长公共前缀。
 //注意是全部字符的公共前缀，不是部分符号串的。
