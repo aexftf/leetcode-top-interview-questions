@@ -1,173 +1,63 @@
 package topinterviewquestions;
 
 import java.util.LinkedList;
+//在一条环路上有 n个加油站，其中第 i个加油站有汽油gas[i]升。
+//你有一辆油箱容量无限的的汽车，从第 i 个加油站开往第 i+1个加油站需要消耗汽油cost[i]升。你从其中的一个加油站出发，开始时油箱为空。
+//给定两个整数数组 gas 和 cost ，如果你可以绕环路行驶一周，则返回出发时加油站的编号，否则返回 -1 。如果存在解，则 保证 它是 唯一 的。
 
-// 本实现比leetcode要求的要难
-// 返回了所有节点是不是良好出发点
+//示1:
+//输入: gas = [1,2,3,4,5], cost = [3,4,5,1,2]
+//输出: 3
+//解释:
+//从 3 号加油站(索引为 3 处)出发，可获得 4 升汽油。此时油箱有 = 0 + 4 = 4 升汽油
+//开往 4 号加油站，此时油箱有 4 - 1 + 5 = 8 升汽油
+//开往 0 号加油站，此时油箱有 8 - 2 + 1 = 7 升汽油
+//开往 1 号加油站，此时油箱有 7 - 3 + 2 = 6 升汽油
+//开往 2 号加油站，此时油箱有 6 - 4 + 3 = 5 升汽油
+//开往 3 号加油站，你需要消耗 5 升汽油，正好足够你返回到 3 号加油站。
+//因此，3 可为起始索引。
+//链接：https://leetcode.cn/problems/gas-station
 public class Problem_0134_GasStation {
 
-	public static int canCompleteCircuit1(int[] gas, int[] cost) {
-		boolean[] good = goodArray(gas, cost);
+	//总结：如果x到不了y+1（但能到y），那么从x到y的任一点出发都不可能到达y+1。
+	// 因为从其中任一点出发的话，相当于从0开始加油，
+	// 而如果从x出发到该点则不一定是从0开始加油，可能还有剩余的油。
+	// 既然不从0开始都到不了y+1，那么从0开始就更不可能到达y+1了...
 
-		for (int i = 0; i < gas.length; i++) {
-			if (good[i]) {
-				return i;
-			}
-		}
-		return -1;
-	}
+	//直观理解2，不用公式推导。可以这样想：
+	// 假设从x加油站出发经过z加油站最远能到达y加油站，那么从z加油站直接出发，不可能到达y下一个加油站。
+	// 因为从x出发到z加油站时肯定还有存储的油，这都到不了y的下一站，
+	// 而直接从z出发刚开始是没有存储的油的，所以更不可能到达y的下一站。
+	public int canCompleteCircuit(int[] gas, int[] cost) {
+		int n = gas.length;
+		int i = 0;
 
-	public static boolean[] goodArray(int[] g, int[] c) {
-		int N = g.length;
-		int M = N << 1;
-		int[] arr = new int[M];
+		while (i < n) {
+			int sumOfGas = 0, sumOfCost = 0;
+			int cnt = 0;
 
-		for (int i = 0; i < N; i++) {
-			arr[i] = g[i] - c[i];
-			arr[i + N] = g[i] - c[i];
-		}
-
-		for (int i = 1; i < M; i++) {
-			arr[i] += arr[i - 1];
-		}
-
-		LinkedList<Integer> w = new LinkedList<>();
-
-		for (int i = 0; i < N; i++) {
-			while (!w.isEmpty() && arr[w.peekLast()] >= arr[i]) {
-				w.pollLast();
-			}
-			w.addLast(i);
-		}
-
-		boolean[] ans = new boolean[N];
-
-		for (int offset = 0, i = 0, j = N; j < M; offset = arr[i++], j++) {
-			if (arr[w.peekFirst()] - offset >= 0) {
-				ans[i] = true;
-			}
-
-			if (w.peekFirst() == i) {
-				w.pollFirst();
-			}
-
-			while (!w.isEmpty() && arr[w.peekLast()] >= arr[j]) {
-				w.pollLast();
-			}
-			w.addLast(j);
-		}
-		return ans;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-	// 这个方法的时间复杂度O(N)，额外空间复杂度O(1) 训练营讲了
-	public static int canCompleteCircuit2(int[] gas, int[] cost) {
-		if (gas == null || gas.length == 0) {
-			return -1;
-		}
-
-		if (gas.length == 1) {
-			return gas[0] < cost[0] ? -1 : 0;
-		}
-
-		boolean[] good = stations(cost, gas);
-
-		for (int i = 0; i < gas.length; i++) {
-			if (good[i]) {
-				return i;
-			}
-		}
-		return -1;
-	}
-
-	public static boolean[] stations(int[] cost, int[] gas) {
-		if (cost == null || gas == null || cost.length < 2 || cost.length != gas.length) {
-			return null;
-		}
-
-		int init = changeDisArrayGetInit(cost, gas);
-		return init == -1 ? new boolean[cost.length] : enlargeArea(cost, init);
-	}
-
-	public static int changeDisArrayGetInit(int[] dis, int[] oil) {
-		int init = -1;
-
-		for (int i = 0; i < dis.length; i++) {
-			dis[i] = oil[i] - dis[i];
-			if (dis[i] >= 0) {
-				init = i;
-			}
-		}
-		return init;
-	}
-
-	public static boolean[] enlargeArea(int[] dis, int init) {
-		boolean[] res = new boolean[dis.length];
-
-		int start = init;
-		int end = nextIndex(init, dis.length);
-		int need = 0;
-		int rest = 0;
-
-		do {
-			// 当前来到的start已经在连通区域中，可以确定后续的开始点一定无法转完一圈
-			if (start != init && start == lastIndex(end, dis.length)) {
-				break;
-			}
-			// 当前来到的start不在连通区域中，就扩充连通区域
-			if (dis[start] < need) { // 当前start无法接到连通区的头部
-				need -= dis[start];
-			} else { // 当前start可以接到连通区的头部，开始扩充连通区域的尾巴
-				rest += dis[start] - need;
-				need = 0;
-				while (rest >= 0 && end != start) {
-					rest += dis[end];
-					end = nextIndex(end, dis.length);
-				}
-				// 如果连通区域已经覆盖整个环，当前的start是良好出发点，进入2阶段
-				if (rest >= 0) {
-					res[start] = true;
-					connectGood(dis, lastIndex(start, dis.length), init, res);
+			while (cnt < n) {
+				int j = (i + cnt) % n;
+				sumOfGas += gas[j];
+				sumOfCost += cost[j];
+				if (sumOfCost > sumOfGas) {
 					break;
 				}
+				cnt++;
 			}
-			start = lastIndex(start, dis.length);
-		} while (start != init);
-		return res;
-	}
-
-	// 已知start的next方向上有一个良好出发点
-	// start如果可以达到这个良好出发点，那么从start出发一定可以转一圈
-	public static void connectGood(int[] dis, int start, int init, boolean[] res) {
-		int need = 0;
-
-		while (start != init) {
-			if (dis[start] < need) {
-				need -= dis[start];
+			if (cnt == n) {
+				return i;
 			} else {
-				res[start] = true;
-				need = 0;
+				i = i + cnt + 1;
 			}
-			start = lastIndex(start, dis.length);
 		}
+		return -1;
 	}
 
-	public static int lastIndex(int index, int size) {
-		return index == 0 ? (size - 1) : index - 1;
-	}
 
-	public static int nextIndex(int index, int size) {
-		return index == size - 1 ? 0 : (index + 1);
-	}
+
+
+
+
 
 }
