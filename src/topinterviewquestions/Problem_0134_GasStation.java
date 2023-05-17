@@ -1,5 +1,5 @@
 package topinterviewquestions;
-
+//圆圈路
 import java.util.LinkedList;
 //在一条环路上有 n个加油站，其中第 i个加油站有汽油gas[i]升。
 //你有一辆油箱容量无限的的汽车，从第 i 个加油站开往第 i+1个加油站需要消耗汽油cost[i]升。你从其中的一个加油站出发，开始时油箱为空。
@@ -19,45 +19,47 @@ import java.util.LinkedList;
 //链接：https://leetcode.cn/problems/gas-station
 public class Problem_0134_GasStation {
 
-	//总结：如果x到不了y+1（但能到y），那么从x到y的任一点出发都不可能到达y+1。
-	// 因为从其中任一点出发的话，相当于从0开始加油，
-	// 而如果从x出发到该点则不一定是从0开始加油，可能还有剩余的油。
-	// 既然不从0开始都到不了y+1，那么从0开始就更不可能到达y+1了...
+	//思路：首先判断总油量是否小于总油耗，如果是则肯定不能走一圈。如果否，那肯定能跑一圈。
+	// 接下来就是循环数组，从第一个站开始，计算每一站剩余的油量，
+	// 如果油量为负了，就以这个站为起点从新计算。如果到达某一个点为负，
+	// 说明起点到这个点中间的所有站点都不能到达该点。
 
-	//直观理解2，不用公式推导。可以这样想：
+	//小段一部分功能，直观理解，可以这样想：
 	// 假设从x加油站出发经过z加油站最远能到达y加油站，那么从z加油站直接出发，不可能到达y下一个加油站。
 	// 因为从x出发到z加油站时肯定还有存储的油，这都到不了y的下一站，
 	// 而直接从z出发刚开始是没有存储的油的，所以更不可能到达y的下一站。
 	public int canCompleteCircuit(int[] gas, int[] cost) {
 		int n = gas.length;
-		int i = 0;
+		int sum = 0;
 
-		while (i < n) {
-			int sumOfGas = 0, sumOfCost = 0;
-			int cnt = 0;
+		//------整圈肯定走不了
+		for(int i = 0;i < n;i++){
+			sum += gas[i] - cost[i];
+		}
 
-			while (cnt < n) {
-				int j = (i + cnt) % n;
-				sumOfGas += gas[j];
-				sumOfCost += cost[j];
-				if (sumOfCost > sumOfGas) {
-					break;
-				}
-				cnt++;
-			}
-			if (cnt == n) {
-				return i;
-			} else {
-				i = i + cnt + 1;
+		if(sum < 0){
+			return -1;
+		}
+		//------整圈肯定走不了
+
+		int currentGas = 0;
+		int start = 0;
+
+		for(int i = 0;i < n;i++){
+			currentGas += gas[i] - cost[i];
+			if(currentGas < 0){
+				currentGas = 0;
+				start = i + 1;//直观理解，可以这样想：
+				// 假设从x加油站出发经过z加油站最远能到达y加油站，那么从z加油站直接出发，不可能到达y下一个加油站。
+				// 因为从x出发到z加油站时肯定还有存储的油，这都到不了y的下一站，
+				// 而直接从z出发刚开始是没有存储的油的，所以更不可能到达y的下一站。
+
 			}
 		}
-		return -1;
+		return start;
 	}
-
-
-
-
-
-
-
 }
+
+
+
+
