@@ -3,6 +3,62 @@ package topinterviewquestions;
 public class Problem_0148_SortList {
 
 
+	//time:nlogn
+
+	public ListNode sortList1(ListNode head) {
+		return sort(head, null);
+	}
+
+	private ListNode sort(ListNode start, ListNode end) {
+		if(start == end)        return start;
+
+		ListNode fast = start, slow = start;
+		while(fast != end && fast.next != end){
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+
+		ListNode l2 = sort(slow.next, end);
+		slow.next = null;//断开变成了俩了
+		ListNode l1 = sort(start, slow);
+
+
+		return merge(l1, l2);
+	}
+
+
+	private ListNode merge(ListNode l1, ListNode l2) {
+		if(l1 == null || l2 == null)
+			return l1 == null ? l2 : l1;
+
+		if(l1.val < l2.val){
+			l1.next = merge(l1.next, l2);
+			return l1;
+		}else{
+			l2.next = merge(l1, l2.next);
+			return l2;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//=---------------------------------------------------------------
+
+
+
 	// 自底向上归并排序
 	public ListNode sortList(ListNode head) {
 		if(head == null){
@@ -93,150 +149,6 @@ public class Problem_0148_SortList {
 		// 最后返回合并后有序的链表
 		return dummy.next;
 	}
-
-
-
-
-
-
-
-
-
-
-
-	//=========-----------------------------------------------------------=======
-
-
-
-
-	public static ListNode sortList1(ListNode head) {
-		int N = 0;
-		ListNode cur = head;
-
-		while (cur != null) {
-			N++;
-			cur = cur.next;
-		}
-
-		ListNode h = head;
-		ListNode teamFirst = head;
-		ListNode pre = null;
-
-		for (int len = 1; len < N; len <<= 1) {
-
-			while (teamFirst != null) {
-				ListNode[] hthtn = hthtn(teamFirst, len);
-				ListNode[] mhmt = merge1(hthtn[0], hthtn[1], hthtn[2], hthtn[3]);
-
-				if (h == teamFirst) {
-					h = mhmt[0];
-					pre = mhmt[1];
-				} else {
-					pre.next = mhmt[0];
-					pre = mhmt[1];
-				}
-				teamFirst = hthtn[4];
-			}
-			teamFirst = h;
-			pre = null;
-		}
-		return h;
-	}
-
-
-
-
-
-
-	public static ListNode[] hthtn(ListNode teamFirst, int len) {
-
-		ListNode ls = teamFirst;
-		ListNode le = teamFirst;
-		ListNode rs = null;
-		ListNode re = null;
-		ListNode next = null;
-		int pass = 0;
-
-		while (teamFirst != null) {
-			pass++;
-
-			if (pass <= len) {
-				le = teamFirst;
-			}
-			if (pass == len + 1) {
-				rs = teamFirst;
-			}
-			if (pass > len) {
-				re = teamFirst;
-			}
-			if (pass == (len << 1)) {
-				break;
-			}
-			teamFirst = teamFirst.next;
-		}
-		le.next = null;
-
-		if (re != null) {
-			next = re.next;
-			re.next = null;
-		}
-		return new ListNode[] { ls, le, rs, re, next };
-	}
-
-
-
-
-
-
-	public static ListNode[] merge1(ListNode ls, ListNode le, ListNode rs, ListNode re) {
-		if (rs == null) {
-			return new ListNode[] { ls, le };
-		}
-
-		ListNode head = null;
-		ListNode pre = null;
-		ListNode cur = null;
-		ListNode tail = null;
-
-		while (ls != le.next && rs != re.next) {
-			if (ls.val <= rs.val) {
-				cur = ls;
-				ls = ls.next;
-			} else {
-				cur = rs;
-				rs = rs.next;
-			}
-			if (pre == null) {
-				head = cur;
-				pre = cur;
-			} else {
-				pre.next = cur;
-				pre = cur;
-			}
-		}
-		if (ls != le.next) {
-			while (ls != le.next) {
-
-				pre.next = ls;
-				pre = ls;
-				tail = ls;
-				ls = ls.next;
-			}
-		} else {
-			while (rs != re.next) {
-				pre.next = rs;
-				pre = rs;
-				tail = rs;
-				rs = rs.next;
-			}
-		}
-		return new ListNode[] { head, tail };
-	}
-
-
-
-
-
 
 
 

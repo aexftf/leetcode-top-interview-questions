@@ -1,6 +1,9 @@
-package topinterviewquestions;
+package followupAndFuckYou;
 
 public class Problem_0188_BestTimeToBuyAndSellStockIV {
+
+
+
 
 	public static int maxProfit1(int K, int[] arr) {
 		if (arr == null || arr.length == 0) {
@@ -23,6 +26,22 @@ public class Problem_0188_BestTimeToBuyAndSellStockIV {
 		}
 		return dp[N - 1][K];
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public static int maxProfit2(int K, int[] prices) {
 		if (prices == null || prices.length == 0) {
@@ -51,6 +70,9 @@ public class Problem_0188_BestTimeToBuyAndSellStockIV {
 		}
 		return ans;
 	}
+
+
+
 
 	public static int allTrans(int[] prices) {
 		int ans = 0;
