@@ -23,7 +23,6 @@ import java.util.Arrays;
 public class Problem_0324_WiggleSortII {
 
 
-	//
 	public void wiggleSort1(int[] nums) {
 			int[] arr = nums.clone();
 			Arrays.sort(arr);

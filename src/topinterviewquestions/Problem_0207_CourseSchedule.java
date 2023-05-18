@@ -22,6 +22,10 @@ public class Problem_0207_CourseSchedule {
 		}
 	}
 
+
+
+
+
 	public static boolean canFinish(int numCourses, int[][] prerequisites) {
 		if (prerequisites == null || prerequisites.length == 0) {
 			return true;
@@ -46,8 +50,10 @@ public class Problem_0207_CourseSchedule {
 			f.nexts.add(t);
 			t.in++;
 		}
+
 		int needPrerequisiteNums = nodes.size();
 		Queue<Node> zeroInQueue = new LinkedList<>();
+
 		for (Node node : nodes.values()) {
 			if (node.in == 0) {
 				zeroInQueue.add(node);

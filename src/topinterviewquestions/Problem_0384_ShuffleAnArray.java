@@ -2,10 +2,12 @@ package topinterviewquestions;
 
 public class Problem_0384_ShuffleAnArray {
 //打乱数组
+
 	class Solution {
 		private int[] origin;
 		private int[] shuffle;
 		private int N;
+
 
 		public Solution(int[] nums) {
 			origin = nums;
@@ -16,6 +18,7 @@ public class Problem_0384_ShuffleAnArray {
 				shuffle[i] = origin[i];
 			}
 		}
+
 
 		public int[] reset() {
 			return origin;
@@ -29,9 +32,16 @@ public class Problem_0384_ShuffleAnArray {
 				int tmp = shuffle[r];
 				shuffle[r] = shuffle[i];
 				shuffle[i] = tmp;
+
 			}
 			return shuffle;
 		}
 	}
+
+
+
+
+
+
 
 }

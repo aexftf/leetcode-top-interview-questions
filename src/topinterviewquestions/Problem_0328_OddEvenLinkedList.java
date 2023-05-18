@@ -2,13 +2,11 @@ package topinterviewquestions;
 
 public class Problem_0328_OddEvenLinkedList {
 
-	// 提交时不要提交这个类
-	public static class ListNode {
-		int val;
-		ListNode next;
-	}
+
+
 
 	public ListNode oddEvenList(ListNode head) {
+
 		ListNode firstOdd = null;
 		ListNode firstEven = null;
 		ListNode odd = null;
@@ -36,10 +34,24 @@ public class Problem_0328_OddEvenLinkedList {
 			count++;
 			head = next;
 		}
+
 		if (odd != null) {
 			odd.next = firstEven;
 		}
+
 		return firstOdd != null ? firstOdd : firstEven;
 	}
 
+
+
+
+
+
+
+
+
+	public static class ListNode {
+		int val;
+		ListNode next;
+	}
 }

@@ -2,10 +2,7 @@ package topinterviewquestions;
 
 public class Problem_0234_PalindromeLinkedList {
 //回文链表
-	public static class ListNode {
-		public int val;
-		public ListNode next;
-	}
+
 
 	public static boolean isPalindrome(ListNode head) {
 		if (head == null || head.next == null) {
@@ -55,4 +52,13 @@ public class Problem_0234_PalindromeLinkedList {
 		return res;
 	}
 
+
+
+
+
+
+	public static class ListNode {
+		public int val;
+		public ListNode next;
+	}
 }

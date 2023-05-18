@@ -2,7 +2,6 @@ package topinterviewquestions;
 
 public class Problem_0277_FindTheCelebrity {
 
-	// 提交时不要提交这个函数，只提交下面的方法
 	public static boolean knows(int x, int i) {
 		return true;
 	}

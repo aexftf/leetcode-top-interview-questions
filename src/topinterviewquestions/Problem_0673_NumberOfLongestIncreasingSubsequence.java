@@ -55,6 +55,23 @@ public class Problem_0673_NumberOfLongestIncreasingSubsequence {
 		return dp.get(dp.size() - 1).firstEntry().getValue();
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public static int findNumberOfLIS2(int[] nums) {
 		if (nums == null || nums.length == 0) {
 			return 0;
@@ -119,5 +136,9 @@ public class Problem_0673_NumberOfLongestIncreasingSubsequence {
 		}
 		return dp.get(dp.size() - 1).firstEntry().getValue();
 	}
+
+
+
+
 
 }

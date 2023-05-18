@@ -1,11 +1,7 @@
 package topinterviewquestions;
-
+//早看完了
 public class Problem_0206_ReverseLinkedList {
 
-	public static class ListNode {
-		int val;
-		ListNode next;
-	}
 
 
 	public static ListNode reverseList(ListNode head) {
@@ -18,6 +14,20 @@ public class Problem_0206_ReverseLinkedList {
 			head = next;
 		}
 		return pre;
+	}
+
+
+
+
+
+
+
+
+
+
+	public static class ListNode {
+		int val;
+		ListNode next;
 	}
 
 }

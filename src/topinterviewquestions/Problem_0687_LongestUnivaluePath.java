@@ -12,12 +12,18 @@ public class Problem_0687_LongestUnivaluePath {
 		}
 	}
 
+
+
+
 	public static int longestUnivaluePath(TreeNode root) {
 		if (root == null) {
 			return 0;
 		}
 		return process(root).max - 1;
 	}
+
+
+
 
 	// 建设以x节点为头的树，返回两个信息
 	public static class Info {
@@ -30,6 +36,9 @@ public class Problem_0687_LongestUnivaluePath {
 			max = m;
 		}
 	}
+
+
+
 
 	private static Info process(TreeNode x) {
 		if (x == null) {
@@ -60,5 +69,11 @@ public class Problem_0687_LongestUnivaluePath {
 
 		return new Info(len, max);
 	}
+
+
+
+
+
+
 
 }

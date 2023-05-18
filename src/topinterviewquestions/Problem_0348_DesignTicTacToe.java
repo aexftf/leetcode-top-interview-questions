@@ -2,6 +2,7 @@ package topinterviewquestions;
 
 public class Problem_0348_DesignTicTacToe {
 //3*3矩阵
+
 	class TicTacToe {
 		private int[][] rows;
 		private int[][] cols;
@@ -18,6 +19,7 @@ public class Problem_0348_DesignTicTacToe {
 			matrix = new boolean[n][n];
 			N = n;
 		}
+
 
 		public int move(int row, int col, int player) {
 			if (matrix[row][col]) {

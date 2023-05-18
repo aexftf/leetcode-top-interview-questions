@@ -10,11 +10,14 @@ public class Problem_0380_InsertDeleteGetRandom {
 		private HashMap<Integer, Integer> indexKeyMap;
 		private int size;
 
+
 		public RandomizedSet() {
 			keyIndexMap = new HashMap<Integer, Integer>();
 			indexKeyMap = new HashMap<Integer, Integer>();
 			size = 0;
 		}
+
+
 
 		public boolean insert(int val) {
 			if (!keyIndexMap.containsKey(val)) {
@@ -25,6 +28,8 @@ public class Problem_0380_InsertDeleteGetRandom {
 			}
 			return false;
 		}
+
+
 
 		public boolean remove(int val) {
 			if (keyIndexMap.containsKey(val)) {
@@ -42,6 +47,8 @@ public class Problem_0380_InsertDeleteGetRandom {
 			return false;
 		}
 
+
+
 		public int getRandom() {
 			if (size == 0) {
 				return -1;
@@ -49,6 +56,11 @@ public class Problem_0380_InsertDeleteGetRandom {
 			int randomIndex = (int) (Math.random() * size);
 			return indexKeyMap.get(randomIndex);
 		}
+
+
 	}
+
+
+
 
 }

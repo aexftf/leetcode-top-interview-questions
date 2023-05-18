@@ -8,7 +8,7 @@ public class Problem_0341_FlattenNestedListIterator {
 
 
 
-	// 不要提交这个接头类
+
 	public interface NestedInteger {
 
 		// @return true if this NestedInteger holds a single integer, rather than a
