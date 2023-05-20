@@ -106,6 +106,19 @@ public class Problem_0341_FlattenNestedListIterator {
 
 
 
+//栈实现好理解
+	//方法二：栈
+	//思路:
+	//我们可以用一个栈来代替方法一中的递归过程。
+	//具体来说，用一个栈来维护深度优先搜索时，从根节点到当前节点路径上的所有节点。
+	// 由于非叶节点对应的是一个列表，我们在栈中存储的是指向列表当前遍历的元素的指针（下标）。
+	// 每次向下搜索时，取出列表的当前指针指向的元素并将其入栈，同时将该指针向后移动一位。
+	//如此反复直到找到一个整数。循环时若栈顶指针指向了列表末尾，则将其从栈顶弹出。
+	//下面的代码中，
+	//C++ 和
+	//Java
+	//Java 的栈存储的是迭代器，迭代器可以起到指向元素的指针的效果，
+	//链接：https://leetcode.cn/problems/flatten-nested-list-iterator/solution/bian-ping-hua-qian-tao-lie-biao-die-dai-ipjzq/
 
 	public class NestedIterator1 implements Iterator<Integer> {
 		// 存储列表的当前遍历位置
@@ -126,12 +139,15 @@ public class Problem_0341_FlattenNestedListIterator {
 		public boolean hasNext() {
 			while (!stack.isEmpty()) {
 				Iterator<NestedInteger> it = stack.peek();
+
 				if (!it.hasNext()) { // 遍历到当前列表末尾，出栈
 					stack.pop();
 					continue;
 				}
+
 				// 若取出的元素是整数，则通过创建一个额外的列表将其重新放入栈中
 				NestedInteger nest = it.next();
+
 				if (nest.isInteger()) {
 					List<NestedInteger> list = new ArrayList<NestedInteger>();
 					list.add(nest);
