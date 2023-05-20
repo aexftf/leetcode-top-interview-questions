@@ -1,56 +1,48 @@
 package topinterviewquestions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Problem_0234_PalindromeLinkedList {
 //回文链表
 
 
-	public static boolean isPalindrome(ListNode head) {
-		if (head == null || head.next == null) {
-			return true;
+
+
+
+
+
+
+	public boolean isPalindrome(ListNode head) {
+		List<Integer> vals = new ArrayList<Integer>();
+
+		// 将链表的值复制到数组中
+		ListNode currentNode = head;
+		while (currentNode != null) {
+			vals.add(currentNode.val);
+			currentNode = currentNode.next;
 		}
 
-		ListNode n1 = head;
-		ListNode n2 = head;
-
-		while (n2.next != null && n2.next.next != null) {
-			n1 = n1.next;
-			n2 = n2.next.next;
-		}
-
-		n2 = n1.next;
-		n1.next = null;
-		ListNode n3 = null;
-
-		while (n2 != null) {
-			n3 = n2.next;
-			n2.next = n1;
-			n1 = n2;
-			n2 = n3;
-		}
-
-		n3 = n1;
-		n2 = head;
-		boolean res = true;
-
-		while (n1 != null && n2 != null) {
-			if (n1.val != n2.val) {
-				res = false;
-				break;
+		// 使用双指针判断是否回文
+		int front = 0;
+		int back = vals.size() - 1;
+		while (front < back) {
+			if (!vals.get(front).equals(vals.get(back))) {
+				return false;
 			}
-			n1 = n1.next;
-			n2 = n2.next;
+			front++;
+			back--;
 		}
-		n1 = n3.next;
-		n3.next = null;
-
-		while (n1 != null) {
-			n2 = n1.next;
-			n1.next = n3;
-			n3 = n1;
-			n1 = n2;
-		}
-		return res;
+		return true;
 	}
+
+
+
+
+
+
+
+
 
 
 

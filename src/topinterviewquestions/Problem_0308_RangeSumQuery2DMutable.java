@@ -60,4 +60,10 @@ public class Problem_0308_RangeSumQuery2DMutable {
 		return sum(row2, col2) + sum(row1 - 1, col1 - 1) - sum(row1 - 1, col2) - sum(row2, col1 - 1);
 	}
 
+
+
+
+
+
+
 }

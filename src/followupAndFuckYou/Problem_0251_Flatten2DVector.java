@@ -1,4 +1,4 @@
-package topinterviewquestions;
+package followupAndFuckYou;
 
 public class Problem_0251_Flatten2DVector {
 

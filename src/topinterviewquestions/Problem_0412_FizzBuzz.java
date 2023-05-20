@@ -8,9 +8,7 @@ import java.util.List;
  * easy
  */
 public class Problem_0412_FizzBuzz {
-
-
-	//简单题，基本不用看
+	//简单题，不用看
 	public static List<String> fizzBuzz(int n) {
 		ArrayList<String> ans = new ArrayList<>();
 

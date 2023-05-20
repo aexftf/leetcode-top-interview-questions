@@ -1,11 +1,66 @@
 package topinterviewquestions;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class Problem_0210_CourseScheduleII {
+
+
+
+
+
+
+
+	public int[] findOrder(int numCourses, int[][] prerequisites) {
+		int[] ans = new int[numCourses];
+		Map<Integer, List<Integer>> graph = new HashMap<>();
+		int[] indegree = new int[numCourses];
+
+		// 根据prerequisites初始化indegree[]和graph
+		for(int[] ab : prerequisites){
+			int a = ab[0]; // b是a的先修课程，b指向a
+			int b = ab[1];
+			indegree[a]++; // a的入度加1
+
+			// 将a作为b的邻接顶点加入到b的邻接表中
+			List<Integer> adjs = graph.getOrDefault(b, new ArrayList<>());
+			adjs.add(a);
+			graph.put(b, adjs);
+		}
+		// 找到入度为0的顶点并入队
+		int count = 0;
+		Deque<Integer> q = new ArrayDeque<>();
+		for(int i = 0; i < numCourses; i++){
+			if(indegree[i] == 0) {
+				q.add(i);
+				ans[count++] = i; // 入度为0的顶点可以先输出到ans
+			}
+		}
+		// 拓扑排序
+		while(!q.isEmpty()){
+			int u = q.remove();
+			List<Integer> adjs = graph.get(u);
+			if(adjs != null){ // 图不连通时，有的顶点可能无邻接顶点
+				for(int v : graph.get(u)){
+					indegree[v]--; // u的邻接顶点v入度减1
+					if(indegree[v] == 0){
+						q.add(v);
+						ans[count++] = v; // 入度减为0时输出到ans
+					}
+				}
+			}
+		}
+		return count == numCourses ? ans : new int[]{};
+	}
+
+
+
+
+
+
+
+
+
+
 
 	public static class Node {
 		public int name;
@@ -19,7 +74,7 @@ public class Problem_0210_CourseScheduleII {
 		}
 	}
 
-	public int[] findOrder(int numCourses, int[][] prerequisites) {
+	public int[] findOrder1(int numCourses, int[][] prerequisites) {
 		int[] ans = new int[numCourses];
 		for (int i = 0; i < numCourses; i++) {
 			ans[i] = i;
