@@ -42,7 +42,7 @@ public class Problem_0384_ShuffleAnArray {
 		public int[] shuffle() {
 			for (int i = N - 1; i >= 0; i--) {
 
-				int r = (int) (Math.random() * (i + 1));//1-i+1随机
+				int r = (int) (Math.random() * (i + 1));//1~i+1随机
 
 				int tmp = shuffle[r];
 				shuffle[r] = shuffle[i];
@@ -51,6 +51,9 @@ public class Problem_0384_ShuffleAnArray {
 			}
 			return shuffle;
 		}
+
+
+
 	}
 
 

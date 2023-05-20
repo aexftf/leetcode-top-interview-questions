@@ -1,4 +1,4 @@
-package HardToWrittenExamination;
+package hot100;
 
 public class Problem_0348_DesignTicTacToe {
 //3*3矩阵
