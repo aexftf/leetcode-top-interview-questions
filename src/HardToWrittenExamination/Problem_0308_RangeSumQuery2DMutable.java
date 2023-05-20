@@ -1,6 +1,6 @@
-package topinterviewquestions;
+package HardToWrittenExamination;
 
-// 提交时把类名和构造函数名从Problem_0308_RangeSumQuery2DMutable改成NumMatrix
+//
 public class Problem_0308_RangeSumQuery2DMutable {
 	private int[][] tree;
 	private int[][] nums;

@@ -1,4 +1,4 @@
-package topinterviewquestions;
+package HardToWrittenExamination;
 
 public class Problem_0340_LongestSubstringWithAtMostKDistinctCharacters {
 
