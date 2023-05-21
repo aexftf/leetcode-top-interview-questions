@@ -1,5 +1,5 @@
 package topinterviewquestions;
-//打乱数组
+//打乱数组（简单题）
 public class Problem_0384_ShuffleAnArray {
 //给你一个整数数组 nums ，设计算法来打乱一个没有重复元素的数组。打乱后，数组的所有排列应该是等可能的。
 //实现 Solution class:

@@ -14,6 +14,8 @@ package topinterviewquestions;
 //https://leetcode.cn/problems/maximum-product-subarray
 public class Problem_0152_MaximumProductSubarray {
 
+
+
 	public static int maxProduct(int[] nums) {
 		int ans = nums[0];
 		int min = nums[0];
@@ -29,5 +31,10 @@ public class Problem_0152_MaximumProductSubarray {
 		}
 		return ans;
 	}
+
+
+
+
+
 
 }

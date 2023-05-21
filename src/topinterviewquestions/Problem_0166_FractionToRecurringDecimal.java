@@ -20,7 +20,6 @@ import java.util.Map;
 //链接：https://leetcode.cn/problems/fraction-to-recurring-decimal
 public class Problem_0166_FractionToRecurringDecimal {
 
-//
 
 
 	public String fractionToDecimal(int numerator, int denominator) {

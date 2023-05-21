@@ -17,7 +17,7 @@ public class Problem_0198_HouseRobber {
 //解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。
 // 偷窃到的最高金额 = 2 + 9 + 1 = 12 。
 //链接：https://leetcode.cn/problems/house-robber
-	public static int rob1(int[] nums) {
+	public static int rob(int[] nums) {
 		if (nums == null || nums.length == 0) {
 			return 0;
 		}

@@ -12,7 +12,8 @@ public class Problem_0287_FindTheDuplicateNumber {
 	//示例 2：
 //输入：nums = [3,1,3,4,2]
 //输出：3
-//链接：https://leetcode.cn/problems/find-the-duplicate-number
+
+//https://leetcode.cn/problems/find-the-duplicate-number
 
 		public int findDuplicate(int[] nums) {
 			int n = nums.length;

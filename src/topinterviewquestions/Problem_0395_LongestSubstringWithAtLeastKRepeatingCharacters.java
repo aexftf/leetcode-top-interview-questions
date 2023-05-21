@@ -52,6 +52,19 @@ public class Problem_0395_LongestSubstringWithAtLeastKRepeatingCharacters {
 
 
 
+
+
+
+
+
+
+
+
+
+
+	
+
+
 	//
 	public static int longestSubstring2(String s, int k) {
 		char[] str = s.toCharArray();

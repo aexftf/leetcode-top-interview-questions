@@ -47,4 +47,5 @@ public class Problem_0300_LongestIncreasingSubsequence {
 		return max;
 	}
 
+
 }
