@@ -1,7 +1,8 @@
-package topinterviewquestions;
+package topinterviewquestions.tree;
 //中序遍历,早看完了
 
 public class Problem_0285_InorderSuccessorInBST {
+
 
 	public static class TreeNode {
 		public int val;

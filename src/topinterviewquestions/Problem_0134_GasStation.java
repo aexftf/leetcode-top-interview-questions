@@ -1,5 +1,5 @@
 package topinterviewquestions;
-//圆圈路
+//圆圈路 模版
 import java.util.LinkedList;
 //在一条环路上有 n个加油站，其中第 i个加油站有汽油gas[i]升。
 //你有一辆油箱容量无限的的汽车，从第 i 个加油站开往第 i+1个加油站需要消耗汽油cost[i]升。你从其中的一个加油站出发，开始时油箱为空。

@@ -10,6 +10,7 @@ public class Problem_0141_LinkedListCycle {
 
 
 
+
 	public static boolean hasCycle(ListNode head) {
 		return getFirstLoopNode(head) != null;
 	}

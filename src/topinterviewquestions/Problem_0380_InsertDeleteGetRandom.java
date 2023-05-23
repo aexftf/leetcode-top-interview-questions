@@ -59,6 +59,7 @@ public class Problem_0380_InsertDeleteGetRandom {
 
 		public boolean remove(int val) {
 			if (keyIndexMap.containsKey(val)) {
+
 				int deleteIndex = keyIndexMap.get(val);
 				int lastIndex = --size;
 				int lastKey = indexKeyMap.get(lastIndex);
