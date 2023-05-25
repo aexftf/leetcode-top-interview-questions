@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * TODO
@@ -9,10 +8,25 @@ import java.util.Scanner;
  * @date 2023年03月22日 19:39
  */
 public class Solution {
-    public class ListNode {
-        int val;
-        ListNode next = null;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -60,13 +74,10 @@ public class Solution {
             count++;
         }
 
-        String[] strings = new String[count];
 
-        for (int i = 0; i < strings.length; i++) {
 
-            String temp = strings[i];
 
-        }
+
 
 
     }
@@ -79,6 +90,13 @@ public class Solution {
         int tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
+    }
+
+
+
+    public class ListNode {
+        int val;
+        ListNode next = null;
     }
 
 

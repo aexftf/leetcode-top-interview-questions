@@ -32,6 +32,11 @@ public class Problem_0005_LongestPalindromicSubstring {
 //1,2,3,4
 	}
 
+
+
+
+
+
 	private boolean isVilide(char[] chars, int l, int r) {
 		for (int i = 0; i < chars.length-1; i++) {
 			if (chars[i] == chars[r]){

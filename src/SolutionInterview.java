@@ -6,9 +6,27 @@ import java.util.*;
 public class SolutionInterview {
 
 
+
+
+
+
+
+
+
+
+
+
     public void solveFunctions() {
         //Example
     }
+
+
+
+
+
+
+
+
 
     public  int maxPath(int[][] matrix) {
         int ans = Integer.MIN_VALUE;
@@ -19,6 +37,9 @@ public class SolutionInterview {
         }
         return ans;
     }
+
+
+
 
     // 假设在matrix中，从i行，j列出发，能走出的最长递增路径，返回最长递增路径的长度
     public static int process(int[][] matrix, int i, int j) {
@@ -160,13 +181,7 @@ public class SolutionInterview {
         return c;
     }
 
-    //测试
-//    public static void main(String[] args) {
-//        int[] a = new int[]{1, 3, 5, 7};
-//        int[] b = new int[]{2, 4, 6, 8, 10, 11};
-//        int[] c = twoConvertOne(a, b);
-//        System.out.println(Arrays.toString(c));
-//    }
+
 
     public static int[] merge2(int[] nums1, int[] nums2) {
         int p1 = 0, p2 = 0;
@@ -244,52 +259,7 @@ public class SolutionInterview {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
-        LinkedList<Integer> heights = new LinkedList<Integer>();
-        System.out.println("请输入12个人的身高（用空格分隔）：");
-        for (
-                int i = 0;
-                i < 12; i++) {
-            heights.add(scanner.nextInt());
-        }
-
-        // 将身高从高到低排序
-        Collections.sort(heights, Collections.reverseOrder());
-        LinkedList<Integer> group1 = new LinkedList<Integer>(heights.subList(0, 6));
-        LinkedList<Integer> group2 = new LinkedList<Integer>(heights.subList(6, 12));
-
-        // 将身高从低到高排序
-        heights.clear();
-        while (!group1.isEmpty() && !group2.isEmpty()) {
-            if (group1.getFirst() < group2.getFirst()) {
-                heights.add(group1.removeFirst());
-            } else {
-                heights.add(group2.removeFirst());
-            }
-        }
-        heights.addAll(group1);
-        heights.addAll(group2);
-
-        // 计算用时
-        int time1 = 0, time2 = 0;
-        for (
-                int i = 0;
-                i < 6; i++) {
-            time1 += heights.get(i);
-        }
-        for (int i = 6; i < 12; i++) {
-            time2 += heights.get(i);
-        }
-
-        // 输出结果
-        if (time1 < time2) {
-            System.out.println("小组1获胜，用时为：" + time1);
-        } else if (time1 > time2) {
-            System.out.println("小组2获胜，用时为：" + time2);
-        } else {
-            System.out.println("平局");
-        }
+        System.out.println(45678/10);
     }
 
 
@@ -332,6 +302,14 @@ public class SolutionInterview {
 
 
 
+
+
+
+
+
+
+
+
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -350,6 +328,11 @@ public class SolutionInterview {
             this.right = right;
         }
     }
+
+
+
+
+
 
 
     public static class ListNode {

@@ -24,7 +24,12 @@ public class Problem_0007_ReverseInteger {
 			res = res * 10 + x % 10;
 			x /= 10;
 		}
-		return neg ? res : Math.abs(res);
+		return  Math.abs(res);
 	}
+
+
+
+
+
 
 }

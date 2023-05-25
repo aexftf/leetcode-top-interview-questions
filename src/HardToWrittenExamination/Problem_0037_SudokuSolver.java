@@ -1,4 +1,4 @@
-package topinterviewquestions;
+package HardToWrittenExamination;
 
 public class Problem_0037_SudokuSolver {
 //hard数独生成游戏

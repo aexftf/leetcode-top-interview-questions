@@ -128,6 +128,17 @@ public class Problem_0146_LRUCache {
 
 
 
+
+
+
+
+
+
+//-------------------------------
+
+
+
+
 	//这道题的个性化参数
 	private MyCache<Integer, Integer> cache;
 
