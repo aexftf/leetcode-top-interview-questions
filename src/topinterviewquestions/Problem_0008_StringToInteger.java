@@ -68,9 +68,12 @@ public class Problem_0008_StringToInteger {
 				&& str.charAt(0) != '-' && str.charAt(0) != '+')
 			return 0;
 
+
 		long ans = 0L;
 		boolean neg = str.charAt(0) == '-';
 		int i = !Character.isDigit(str.charAt(0)) ? 1 : 0;
+
+
 
 		while (i < str.length() && Character.isDigit(str.charAt(i))) {
 			ans = ans * 10 + (str.charAt(i++) - '0');
@@ -85,6 +88,9 @@ public class Problem_0008_StringToInteger {
 				break;
 			}
 		}
+
+
+
 		return neg ? (int) -ans : (int) ans;
 	}
 
@@ -92,7 +98,7 @@ public class Problem_0008_StringToInteger {
 
 
 
-
+//-------------------------------------------------------------
 
 
 

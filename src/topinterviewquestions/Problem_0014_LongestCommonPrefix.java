@@ -8,6 +8,7 @@ public class Problem_0014_LongestCommonPrefix {
 		if (strs == null || strs.length == 0) {
 			return "";
 		}
+
 		char[] chs = strs[0].toCharArray();
 		int min = Integer.MAX_VALUE;
 

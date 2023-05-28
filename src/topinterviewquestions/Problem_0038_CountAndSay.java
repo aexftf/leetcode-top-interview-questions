@@ -54,8 +54,4 @@ public class Problem_0038_CountAndSay {
 
 
 
-	public static void main(String[] args) {
-		System.out.println(countAndSay(20));
-	}
-
 }

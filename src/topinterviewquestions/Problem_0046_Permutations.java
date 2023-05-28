@@ -31,7 +31,8 @@ public class Problem_0046_Permutations {
 				ArrayList<Integer> curPath = new ArrayList<>(path);
 				curPath.add(num);
 
-				HashSet<Integer> clone = cloneExceptNum(rest, num);
+				HashSet<Integer> clone = cloneExceptNum(rest, num);//回溯
+
 				f(clone, curPath, ans);
 			}
 		}

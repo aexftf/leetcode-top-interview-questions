@@ -21,16 +21,21 @@ public class
 //不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。
 //注意，输出的顺序和三元组的顺序并不重要。
 Problem_0015_3Sum {
-
+//https://leetcode.cn/problems/3sum/solution/pai-xu-shuang-zhi-zhen-zhu-xing-jie-shi-python3-by/
+	//本题的难点在于如何去除重复解。
+	//1特判，对于数组长度
+	//2对数组进行排序。
+	//3遍历排序后数组：
 	public static List<List<Integer>> threeSum1(int[] nums) {
 		Arrays.sort(nums);
 		List<List<Integer>> ans = new ArrayList<>();
 
 		// 第一个数选了i位置的数
 		for (int i = 0; i < nums.length - 2; i++) {
-			if (i == 0 || nums[i - 1] != nums[i]) {
+			if (i == 0 || nums[i - 1] != nums[i]) {//本题的难点在于如何去除重复解。
 
 				List<List<Integer>> nexts = twoSum1(nums, i + 1, -nums[i]);
+
 				for (List<Integer> cur : nexts) {
 					cur.add(0, nums[i]);//凑三个数
 					ans.add(cur);//三个数，添加上。
@@ -40,6 +45,9 @@ Problem_0015_3Sum {
 		}
 		return ans;
 	}
+
+
+
 
 	// nums已经有序了
 	// nums[begin......]范围上，找到累加和为target的所有二元组
@@ -56,6 +64,7 @@ Problem_0015_3Sum {
 			} else {
 				if (L == begin || nums[L - 1] != nums[L]) {
 					List<Integer> cur = new ArrayList<>();
+
 					cur.add(nums[L]);
 					cur.add(nums[R]);//凑2个数
 					ans.add(cur);//凑2个数，并加上

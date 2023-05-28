@@ -26,4 +26,5 @@ public class Problem_0412_FizzBuzz {
 		return ans;
 	}
 
+
 }

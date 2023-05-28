@@ -38,7 +38,6 @@ public class Problem_0021_MergeTwoSortedLists {
 
 
 
-
 	public static class ListNode {
 		public int val;
 		public ListNode next;

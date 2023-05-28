@@ -1,5 +1,5 @@
 package topinterviewquestions;
-
+//字母异位词
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,7 +22,9 @@ public class Problem_0049_GroupAnagrams {
 		HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 
 		for (String str : strs) {
+
 			int[] record = new int[26];
+
 			for (char cha : str.toCharArray()) {
 				record[cha - 'a']++;
 			}
@@ -32,10 +34,13 @@ public class Problem_0049_GroupAnagrams {
 			for (int value : record) {
 				builder.append(String.valueOf(value)).append("_");
 			}
+
 			String key = builder.toString();
+
 			if (!map.containsKey(key)) {
 				map.put(key, new ArrayList<String>());
 			}
+
 			map.get(key).add(str);
 		}
 

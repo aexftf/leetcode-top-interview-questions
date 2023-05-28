@@ -8,7 +8,7 @@ public class Problem_0053_MaximumSubarray {
 //
 //输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
 //输出：6
-//解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。
+//解释：连续子数组 [4,-1,2,1] 的和最大，为6 。
 //
 //来源：力扣（LeetCode）
 //链接：https://leetcode.cn/problems/maximum-subarray
@@ -56,35 +56,6 @@ public class Problem_0053_MaximumSubarray {
 
 
 
-
-
-	//动态规划版本
-	public static int maxSumFollowUp(int[] arr) {
-		if (arr == null) {
-			return 0;
-		}
-		int N = arr.length;
-		if (N == 0) {
-			return 0;
-		}
-		if (N == 1) {
-			return arr[0];
-		}
-		if (N == 2) {
-			return Math.max(arr[0], arr[1]);
-		}
-		// N > 2
-		int[] dp = new int[N];
-		dp[0] = arr[0];
-		dp[1] = Math.max(arr[0], arr[1]);
-		for (int i = 2; i < N; i++) {
-			int p1 = arr[i];
-			int p2 = dp[i - 1];
-			int p3 = arr[i] + dp[i - 2];
-			dp[i] = Math.max(Math.max(p1, p2), p3);
-		}
-		return dp[N-1];
-	}
 
 
 

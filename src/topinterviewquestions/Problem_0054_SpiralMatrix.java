@@ -1,10 +1,13 @@
 package topinterviewquestions;
-
+//54. 螺旋矩阵
 import java.util.ArrayList;
 import java.util.List;
-
+//笔试
+//给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。
+//输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
+//输出：[1,2,3,6,9,8,7,4,5],,,,,,,看图啊
 public class Problem_0054_SpiralMatrix {
-
+//
     public static List<Integer> spiralOrder(int[][] matrix) {
 		List<Integer> ans = new ArrayList<>();
 
@@ -38,6 +41,7 @@ public class Problem_0054_SpiralMatrix {
 		} else {
 			int curC = b;
 			int curR = a;
+			//左上角的数变化
 			while (curC != d) {
 				ans.add(m[a][curC]);
 				curC++;
@@ -46,6 +50,7 @@ public class Problem_0054_SpiralMatrix {
 				ans.add(m[curR][d]);
 				curR++;
 			}
+			//右下角的数变化
 			while (curC != b) {
 				ans.add(m[c][curC]);
 				curC--;

@@ -22,8 +22,8 @@ package topinterviewquestions;
 //输入: s = "III"
 //输出: 3
 
-//示例 2:
-//输入: s = "IV"
+//示例2:
+//输入:s = "IV"
 //输出: 4
 
 //示例3:
