@@ -1,4 +1,7 @@
 package topinterviewquestions;
+
+import java.util.Arrays;
+
 //215. 数组中的第K个最大元素
 public class Problem_0215_KthLargestElementInAnArray {
 //经典面试13
@@ -17,10 +20,11 @@ public class Problem_0215_KthLargestElementInAnArray {
 		return minKth(nums, nums.length + 1 - k);
 	}
 
+	//
 	public static int minKth(int[] arr, int k) {
 		return process(arr, 0, arr.length - 1, k - 1);
 	}
-
+//
 	public static int process(int[] arr, int L, int R, int index) {
 		if (L == R) {
 			return arr[L];
@@ -83,4 +87,16 @@ public class Problem_0215_KthLargestElementInAnArray {
 
 
 
+
+
+
+
+
+
+
+
+	public int findKthLargest2b(int[] nums, int k) {
+		Arrays.sort(nums);
+		return nums[nums.length - k];
+	}
 }

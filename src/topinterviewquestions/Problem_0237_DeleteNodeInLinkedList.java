@@ -12,6 +12,7 @@ public class Problem_0237_DeleteNodeInLinkedList {
 
 
 
+
 	public static class ListNode {
 		int val;
 		ListNode next;

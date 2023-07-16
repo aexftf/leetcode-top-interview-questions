@@ -1,4 +1,4 @@
-package topinterviewquestions;
+package hot100;
 
 public class Problem_0045_JumpGameII {
 //没有这道题

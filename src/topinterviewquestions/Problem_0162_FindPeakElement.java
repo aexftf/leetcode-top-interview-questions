@@ -30,7 +30,7 @@ public class Problem_0162_FindPeakElement {
 		int R = N - 2;
 		int M = 0;
 
-		while (L < R) {
+		while (L < R) {//变种二分法
 			M = (L + R) / 2;
 			if (nums[M - 1] < nums[M] && nums[M] > nums[M + 1]) {
 				return M;
@@ -42,5 +42,6 @@ public class Problem_0162_FindPeakElement {
 		}
 		return L;
 	}
+
 
 }

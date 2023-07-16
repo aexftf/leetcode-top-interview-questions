@@ -86,6 +86,7 @@ public class Problem_0341_FlattenNestedListIterator {
 
 
 
+
 	public interface NestedInteger {
 
 		// @return true if this NestedInteger holds a single integer, rather than a

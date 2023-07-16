@@ -18,7 +18,7 @@ public class Problem_0191_NumberOf1Bits {
 //解释：输入的二进制串 00000000000000000000000010000000中，共有一位为 '1'。
 //链接：https://leetcode.cn/problems/number-of-1-bits
 
-//
+//面试不问
 
 	public int hammingWeight(int n) {
 		int ret = 0;

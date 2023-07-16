@@ -2,60 +2,9 @@ package topinterviewquestions;
 //给你链表的头结点 head ，请将其按 升序 排列并返回 排序后的链表 。
 public class Problem_0148_SortList {
 
-
 	//time:nlogn
 
-	public ListNode sortList1(ListNode head) {
-		return sort(head, null);
-	}
 
-	private ListNode sort(ListNode start, ListNode end) {
-		if(start == end)        return start;
-
-		ListNode fast = start, slow = start;
-		while(fast != end && fast.next != end){
-			fast = fast.next.next;
-			slow = slow.next;
-		}
-
-		ListNode l2 = sort(slow.next, end);
-		slow.next = null;//断开变成了俩了
-		ListNode l1 = sort(start, slow);
-
-
-		return merge(l1, l2);
-	}
-
-
-	private ListNode merge(ListNode l1, ListNode l2) {
-		if(l1 == null || l2 == null)
-			return l1 == null ? l2 : l1;
-
-		if(l1.val < l2.val){
-			l1.next = merge(l1.next, l2);
-			return l1;
-		}else{
-			l2.next = merge(l1, l2.next);
-			return l2;
-		}
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//=---------------------------------------------------------------
 
 
 
@@ -149,6 +98,61 @@ public class Problem_0148_SortList {
 		// 最后返回合并后有序的链表
 		return dummy.next;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//=---------------------------------------------------------------
+
+
+	//https://leetcode.cn/problems/sort-list/
+	//个人感觉递归分割链表时写成这样好理解些
+	public ListNode sortList1(ListNode head) {
+		return sort(head, null);
+	}
+
+	private ListNode sort(ListNode start, ListNode end) {
+		if(start == end)        return start;
+
+		ListNode fast = start, slow = start;
+		while(fast != end && fast.next != end){
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+
+		ListNode l2 = sort(slow.next, end);
+		slow.next = null;//断开变成了俩了
+		ListNode l1 = sort(start, slow);
+
+
+		return merge(l1, l2);
+	}
+
+
+	//递归
+	private ListNode merge(ListNode l1, ListNode l2) {
+		if(l1 == null || l2 == null)
+			return l1 == null ? l2 : l1;
+
+		if(l1.val < l2.val){
+			l1.next = merge(l1.next, l2);
+			return l1;
+		}else{
+			l2.next = merge(l1, l2.next);
+			return l2;
+		}
+	}
+
+
 
 
 

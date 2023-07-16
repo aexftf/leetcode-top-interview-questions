@@ -26,7 +26,6 @@ public class Problem_0347_TopKFrequentElements {
 	}
 
 	public static class CountComparator implements Comparator<Node> {
-
 		@Override
 		public int compare(Node o1, Node o2) {
 			return o1.count - o2.count;//小根堆
@@ -52,7 +51,7 @@ public class Problem_0347_TopKFrequentElements {
 				heap.add(node);
 			}
 			if (heap.size() > k) {
-				heap.poll();
+					heap.poll(); //拉大的
 			}
 		}
 
@@ -63,5 +62,6 @@ public class Problem_0347_TopKFrequentElements {
 		}
 		return ans;
 	}
+
 
 }

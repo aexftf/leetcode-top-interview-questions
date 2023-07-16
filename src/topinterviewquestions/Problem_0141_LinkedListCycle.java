@@ -34,7 +34,7 @@ public class Problem_0141_LinkedListCycle {
 			fast = fast.next.next;
 			slow = slow.next;
 		}
-		//相遇后-快指·针从头开始走
+		//相遇后-快指·针从头开始走----------规律重点背过
 		fast = head;
 		//快指针变成一次走一步
 		while (slow != fast) {

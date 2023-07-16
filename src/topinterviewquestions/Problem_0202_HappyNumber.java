@@ -37,8 +37,15 @@ public class Problem_0202_HappyNumber {
 			}
 			set.add(n);
 		}
+
+
 		return n == 1;
 	}
+
+
+
+
+
 
 
 

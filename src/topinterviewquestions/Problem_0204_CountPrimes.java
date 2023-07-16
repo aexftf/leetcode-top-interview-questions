@@ -16,14 +16,15 @@ public class Problem_0204_CountPrimes {
 	//示例 3：
 //输入：n = 1
 //输出：0
-//链接：https://leetcode.cn/problems/count-primes
+
+	//https://leetcode.cn/problems/count-primes/solution/ji-shu-zhi-shu-by-leetcode-solution/
 	public static int countPrimes(int n) {
 		if (n < 3) {
 			return 0;
 		}
 		boolean[] f = new boolean[n];
 
-		//2的倍数肯定不是
+		//2的倍数肯定不是，先干掉一半
 		int count = n / 2;
 
 		//只有这些才有可能是
@@ -37,6 +38,7 @@ public class Problem_0204_CountPrimes {
 					f[j] = true;
 				}
 			}
+
 		}
 		return count;
 	}

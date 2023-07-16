@@ -7,12 +7,6 @@ public class Problem_0234_PalindromeLinkedList {
 //回文链表
 
 
-
-
-
-
-
-
 	public boolean isPalindrome(ListNode head) {
 		List<Integer> vals = new ArrayList<Integer>();
 

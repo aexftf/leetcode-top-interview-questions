@@ -3,7 +3,19 @@ package topinterviewquestions;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+//给你一个整数数组nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
+//
+//解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
 
+//示例 1：
+//
+//输入：nums = [1,2,3]
+//输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+
+//示例 2：
+//输入：nums = [0]
+//输出：[[],[0]]
+//链接：https://leetcode.cn/problems/subsets
 public class Problem_0078_Subsets {
 //给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
 //解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
@@ -15,6 +27,8 @@ public class Problem_0078_Subsets {
 		process(nums, 0, path, ans);
 		return ans;
 	}
+
+
 
 	// 当前来到index位置，做决定，1）不要当前位置的数   2）要当前位置的数
 	// 如果要当前位置的数，把该数字，放入到path中去

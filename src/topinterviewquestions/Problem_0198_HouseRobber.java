@@ -49,6 +49,7 @@ public class Problem_0198_HouseRobber {
 
 
 
+
 	public static int rob2(int[] nums) {
 		if (nums == null || nums.length == 0) {
 			return 0;

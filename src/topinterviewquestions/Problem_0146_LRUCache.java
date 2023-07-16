@@ -10,7 +10,6 @@ import java.util.HashMap;
 public class Problem_0146_LRUCache {
 
 
-
 	public static class MyCache<K, V> {
 		private HashMap<K, Node<K, V>> keyNodeMap;
 		private NodeDoubleLinkedList<K, V> nodeList;

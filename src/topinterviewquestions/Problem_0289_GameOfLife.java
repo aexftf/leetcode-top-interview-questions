@@ -66,6 +66,7 @@ public class Problem_0289_GameOfLife {
 	}
 
 
+
 	public static int neighbors(int[][] board, int i, int j) {
 		int count = 0;
 		count += ok(board, i - 1, j - 1) ? 1 : 0;
@@ -82,18 +83,6 @@ public class Problem_0289_GameOfLife {
 	public static boolean ok(int[][] board, int i, int j) {
 		return i >= 0 && i < board.length && j >= 0 && j < board[0].length && (board[i][j] & 1) == 1;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

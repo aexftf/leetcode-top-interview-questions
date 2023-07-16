@@ -6,11 +6,115 @@ import java.util.*;
 public class SolutionInterview {
 
 
+    public class Main4 {//卖矿泉水瓶 2元一个
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            while (sc.hasNext()) {
+                int n = sc.nextInt();
+
+                System.out.println(n/2);
+            }
+
+        }
+    }
+
+
+    public class Main {
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            while (sc.hasNext()) {//这题还考察了一点就是需要多次执行，不是只执行一次，所以这个while语句一定不要少了，尴尬
+                int number = sc.nextInt();
+                int shuzu[] = new int[number];
+                for (int i = 0; i < shuzu.length; i++) {
+                    shuzu[i] = sc.nextInt();
+                }
+                // 利用Set把重复的元素去掉
+                Set<Object> set = new HashSet<>();
+                for (int i = 0; i < shuzu.length; i++) {
+                    set.add(shuzu[i]);
+                }
+                // 遍历set集合 无序的
+                // 转化成int数组
+                int[] uArray = new int[set.size()];
+                int count = 0;
+                for (Object str : set) {
+                    // 将Object转化成 int
+                    uArray[count++] = Integer.parseInt(String.valueOf(str));
+                }
+                Arrays.sort(uArray);
+                for (int i = 0; i < uArray.length; i++) {
+                    System.out.println(uArray[i]);
+                }
+
+            }
+        }
+    }
 
 
 
 
+    //明明生成了
+//N个1到500之间的随机整数。请你删去其中重复的数字，即相同的数字只保留一个，把其余相同的数去掉，然后再把这些数从小到大排序，按照排好的顺序输出
+    public class Main1 {
 
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            while (sc.hasNext()) {//这题还考察了一点就是需要多次执行，不是只执行一次，所以这个while语句一定不要少了，尴尬
+                int number = sc.nextInt();
+                int shuzu[] = new int[number];
+                for (int i = 0; i < shuzu.length; i++) {
+                    shuzu[i] = sc.nextInt();
+                }
+                // 利用Set把重复的元素去掉
+                Set<Object> set = new HashSet<>();
+                for (int i = 0; i < shuzu.length; i++) {
+                    set.add(shuzu[i]);
+                }
+                // 遍历set集合 无序的
+                // 转化成int数组
+                int[] uArray = new int[set.size()];
+                int count = 0;
+                for (Object str : set) {
+                    // 将Object转化成 int
+                    uArray[count++] = Integer.parseInt(String.valueOf(str));
+                }
+                Arrays.sort(uArray);
+                for (int i = 0; i < uArray.length; i++) {
+                    System.out.println(uArray[i]);
+                }
+
+            }
+        }
+    }
+    public class Main2vd{//写出一个程序，接受一个十六进制的数，输出该数值的十进制表示。
+
+        public static void main(String[] args){
+            Scanner in = new Scanner(System.in);
+            while(in.hasNextLine()){
+                String n = in.nextLine();
+                boolean isValid = true;
+                int sum = 0;
+
+                for(int i=n.length()-1;i>=0;i--){
+                    char c = n.charAt(i);
+                    if(c-'0'>=0&&c-'0'<=9)
+                        sum+=(c-'0')*Math.pow(16,n.length()-1-i);
+                    else if(Character.toUpperCase(c)>='A'&&Character.toUpperCase(c)<='F')
+                        sum+=(c-'A'+10)*Math.pow(16,n.length()-1-i);
+                    else if(c=='x'&&i==1)break;
+                    else{
+                        isValid=false;
+                        break;
+                    }
+                }
+                if(!isValid) sum=-1;
+                System.out.println(sum);
+
+            }
+        }
+    }
 
 
 
@@ -259,7 +363,7 @@ public class SolutionInterview {
 
     public static void main(String[] args) {
 
-        System.out.println(45678/10);
+        System.out.println(1/10);
     }
 
 

@@ -15,9 +15,6 @@ package topinterviewquestions;
 public class Problem_0334_IncreasingTripletSubsequence {
 
 
-
-
-
 //这个题和LC300.最长递增子序列类似，可以DP可以贪心，
 // 直接一次遍历，每次保存最小的两个值，如果存在比他俩大的数，那就凑齐了三元递增子序列，空间O(1)走起
 

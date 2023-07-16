@@ -27,9 +27,11 @@ public class Problem_0125_ValidPalindrome {
 
 		while (L < R) {
 			if (validChar(str[L]) && validChar(str[R])) {
+
 				if (!equalMy(str[L], str[R])) {
 					return false;
 				}
+
 				L++;
 				R--;
 			} else {
@@ -39,6 +41,7 @@ public class Problem_0125_ValidPalindrome {
 		}
 		return true;
 	}
+
 
 
 
