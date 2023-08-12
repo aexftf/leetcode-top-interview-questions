@@ -28,8 +28,7 @@ public class Problem_0202_HappyNumber {
 			while (n != 0) { //反复求
 				int r = n % 10;
 				sum += r * r;
-				n /= 10;
-			}
+				n /= 10;}
 
 			n = sum;
 			if (set.contains(n)) {
@@ -41,7 +40,6 @@ public class Problem_0202_HappyNumber {
 
 		return n == 1;
 	}
-
 
 
 

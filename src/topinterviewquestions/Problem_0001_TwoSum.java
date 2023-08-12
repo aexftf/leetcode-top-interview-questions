@@ -1,5 +1,5 @@
 package topinterviewquestions;
-
+//忘了就看视频，最快速度过一遍
 import java.util.HashMap;
 //两数之和
 public class Problem_0001_TwoSum {
@@ -21,7 +21,6 @@ public class Problem_0001_TwoSum {
 		}
 		return new int[] { -1, -1 };
 	}
-
 
 
 

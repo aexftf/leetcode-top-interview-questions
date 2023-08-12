@@ -50,8 +50,8 @@ public class Problem_0347_TopKFrequentElements {
 			if (heap.size() < k || (heap.size() == k && node.count > heap.peek().count)) {
 				heap.add(node);
 			}
-			if (heap.size() > k) {
-					heap.poll(); //拉大的
+			if (heap.size() > k) {  //[1,1,1,1,1,1,1,11,,11,1,1]
+					heap.poll(); //拉小的出去
 			}
 		}
 

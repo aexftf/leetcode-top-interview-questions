@@ -27,16 +27,27 @@ public class Problem_0049_GroupAnagrams {
 			Arrays.sort(array);
 			String key = new String(array);
 
+			//已经定下key了，去找其他形式的组合
 			List<String> list = map.getOrDefault(key, new ArrayList<String>());
 			list.add(str);
+
+			//相同的添加进去以后，map覆盖掉原来的
 			map.put(key, list);
 		}
+
+
+
 		return new ArrayList<List<String>>(map.values());
+
 	}
 
 
 
 
+
+
+
+	//=============================================================
 	public static List<List<String>> groupAnagrams1(String[] strs) {
 		HashMap<String, List<String>> map = new HashMap<String, List<String>>();
 
@@ -81,22 +92,5 @@ public class Problem_0049_GroupAnagrams {
 
 
 
-	public static List<List<String>> groupAnagrams2(String[] strs) {
-		HashMap<String, List<String>> map = new HashMap<String, List<String>>();
-		for (String str : strs) {
-			char[] chs = str.toCharArray();
-			Arrays.sort(chs);
-			String key = String.valueOf(chs);
-			if (!map.containsKey(key)) {
-				map.put(key, new ArrayList<String>());
-			}
-			map.get(key).add(str);
-		}
-		List<List<String>> res = new ArrayList<List<String>>();
-		for (List<String> list : map.values()) {
-			res.add(list);
-		}
-		return res;
-	}
 
 }

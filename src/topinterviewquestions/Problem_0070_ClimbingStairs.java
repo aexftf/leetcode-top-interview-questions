@@ -1,8 +1,6 @@
 package topinterviewquestions;
 
 public class Problem_0070_ClimbingStairs {
-
-
 //标签：动态规划
 //本问题其实常规解法可以分成多个子问题，爬第n阶楼梯的方法数量，等于 2 部分之和
 //爬上
@@ -17,9 +15,10 @@ public class Problem_0070_ClimbingStairs {
 //时间复杂度：
 //O(n)
 	public int climbStairs1(int n) {
-		int[] dp = new int[n + 1];
+		int[] dp = new int[n + 1];  //n=1的话，就有0，1这几个数要装，所以要n+1个容量。
 		dp[0] = 1;
 		dp[1] = 1;
+
 		for(int i = 2; i <= n; i++) {
 			dp[i] = dp[i - 1] + dp[i - 2];
 		}

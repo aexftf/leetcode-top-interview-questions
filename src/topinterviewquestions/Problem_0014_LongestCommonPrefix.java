@@ -31,4 +31,5 @@ public class Problem_0014_LongestCommonPrefix {
 		return strs[0].substring(0, min);
 	}
 
+
 }

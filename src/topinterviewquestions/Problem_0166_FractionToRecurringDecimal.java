@@ -25,17 +25,19 @@ public class Problem_0166_FractionToRecurringDecimal {
 	public String fractionToDecimal(int numerator, int denominator) {
 		long numeratorLong = (long) numerator;
 		long denominatorLong = (long) denominator;
-
+		//1恰好整除----------------------------------
 		if (numeratorLong % denominatorLong == 0) {
 			return String.valueOf(numeratorLong / denominatorLong);
 		}
 
+
+		//2不能整除----------------------------------
 		StringBuffer sb = new StringBuffer();
 		if (numeratorLong < 0 ^ denominatorLong < 0) {
 			sb.append('-');
 		}
 
-		// 整数部分
+		// （1）整数部分
 		numeratorLong = Math.abs(numeratorLong);
 		denominatorLong = Math.abs(denominatorLong);
 
@@ -43,7 +45,7 @@ public class Problem_0166_FractionToRecurringDecimal {
 		sb.append(integerPart);
 		sb.append('.');
 
-		// 小数部分
+		// （2）小数部分
 		StringBuffer fractionPart = new StringBuffer();
 		Map<Long, Integer> remainderIndexMap = new HashMap<Long, Integer>();
 		long remainder = numeratorLong % denominatorLong;
@@ -55,6 +57,8 @@ public class Problem_0166_FractionToRecurringDecimal {
 			remainder %= denominatorLong;
 			index++;
 		}
+
+
 		if (remainder != 0) { // 有循环节
 			int insertIndex = remainderIndexMap.get(remainder);
 			fractionPart.insert(insertIndex, '(');

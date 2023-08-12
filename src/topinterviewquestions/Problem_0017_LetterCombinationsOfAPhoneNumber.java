@@ -16,7 +16,7 @@ import java.util.List;
 //电话号码的字母组合
 public class Problem_0017_LetterCombinationsOfAPhoneNumber {
 
-	public static char[][] phone = { 
+	public static char[][] phone = { //看原题0，1不包含任何数字
 			{ 'a', 'b', 'c' }, // 2    0
 			{ 'd', 'e', 'f' }, // 3    1
 			{ 'g', 'h', 'i' }, // 4    2

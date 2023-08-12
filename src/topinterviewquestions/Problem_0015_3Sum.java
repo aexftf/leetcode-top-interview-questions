@@ -39,10 +39,16 @@ Problem_0015_3Sum {
 				for (List<Integer> cur : nexts) {
 					cur.add(0, nums[i]);//凑三个数
 					ans.add(cur);//三个数，添加上。
-				}
+					}
+
 
 			}
+
+
 		}
+
+
+
 		return ans;
 	}
 

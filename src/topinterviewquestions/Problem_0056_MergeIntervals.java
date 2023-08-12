@@ -39,6 +39,10 @@ public class Problem_0056_MergeIntervals {
 
 	}
 
+
+
+
+
 	// intervals  N * 2
 	public static int[][] merge(int[][] intervals) {
 		if (intervals.length == 0) {
@@ -64,7 +68,7 @@ public class Problem_0056_MergeIntervals {
 				e = arr[i].end;
 			} else {
 				e = Math.max(e, arr[i].end);
-			}
+	 		}
 		}
 
 		ans.add(new Range(s, e));

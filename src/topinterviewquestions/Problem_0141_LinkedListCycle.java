@@ -48,7 +48,6 @@ public class Problem_0141_LinkedListCycle {
 
 
 
-
 	public static class ListNode {
 		int val;
 		ListNode next;

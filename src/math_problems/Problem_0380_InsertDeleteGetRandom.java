@@ -1,5 +1,5 @@
-package topinterviewquestions;
-
+package math_problems;
+//不大像是要出的
 import java.util.HashMap;
 //实现RandomizedSet 类：
 //

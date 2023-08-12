@@ -13,6 +13,8 @@ package topinterviewquestions;
 //链接：https://leetcode.cn/problems/count-and-say
 public class Problem_0038_CountAndSay {
 
+	//
+
 	public static String countAndSay(int n) {
 		if (n < 1) {
 			return "";
@@ -22,7 +24,7 @@ public class Problem_0038_CountAndSay {
 			return "1";
 		}
 
-		char[] last = countAndSay(n - 1).toCharArray();
+		char[] last = countAndSay(n - 1).toCharArray();//
 
 		StringBuilder ans = new StringBuilder();
 

@@ -2,6 +2,7 @@ package topinterviewquestions;
 //你一个字符串 s，找到 s 中最长的回文子串。
 //
 //如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。
+//此题默认给你的实例必定有回文串；
 public class Problem_0005_LongestPalindromicSubstring {
 //示例 1：
 //输入：s = "babad"
@@ -13,48 +14,59 @@ public class Problem_0005_LongestPalindromicSubstring {
 //输出："bb"
 
 
-	//暴力递归
-	public String longestPalindrome1(String s) {
+
+
+
+
+	//暴力递归1
+
+	public String longestPalindrome(String s) {
+
 		int len = s.length();
 		if (len < 2) {
 			return s;
 		}
 
-		int maxlen=1;
-		int begin = 0;
 
-		char[] chars = s.toCharArray();
+		if (len == 2) {
+			if (s.charAt(0)==s.charAt(1)){
+				return s;
+			}
+		}
 
-		for (int i = 0; i <chars.length-1 ; i++) {
-			for (int j = i+1; j <chars.length ; j++) {
-				boolean vilide = isVilide(chars, i, j);
-				if (j-i+1>maxlen && vilide){
-					maxlen = Math.max(maxlen, j-i+1);
+		//大于2
+		int maxLength=1;
+		int begin=0;
+		char[] charArrays = s.toCharArray();
+
+		for (int i = 0; i <len-1 ; i++) {
+			for (int j = i+1; j <len ; j++) {
+				if (j-i+1>maxLength &&validExample(charArrays,i,j)){
+					//绑定死
+					maxLength=j-i+1;
 					begin=i;
 				}
 			}
-
 		}
+		return s.substring(begin,begin+maxLength);
 
-		return s.substring(begin,begin+maxlen);
-//1,2,3,4
 	}
+//是否是回文串
+	private boolean validExample(char[] charArrays, int left, int right) {
 
-
-
-
-
-
-	private boolean isVilide(char[] chars, int l, int r) {
-		for (int i = 0; i < chars.length-1; i++) {
-			if (chars[i] == chars[r]){
-				return true;
+		while (left<right){
+			if (charArrays[left]!=charArrays[right]){
+				return false;
 			}
-			l++;
-			r--;
+			left++;
+			right--;
 		}
-		return false;
+		return true;
+
 	}
+
+
+
 
 
 

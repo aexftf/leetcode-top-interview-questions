@@ -27,8 +27,9 @@ public class Problem_0189_RotateArray {
 		for (int i = 0; i < n; ++i) {
 			newArr[(i + k) % n] = nums[i];//规律
 		}
-		System.arraycopy(newArr, 0, nums, 0, n);
+		System.arraycopy(newArr, 0, nums, 0, n);//覆盖
 	}
+
 
 
 

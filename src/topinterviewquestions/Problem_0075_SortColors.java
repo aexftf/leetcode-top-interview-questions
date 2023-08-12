@@ -12,7 +12,7 @@ package topinterviewquestions;
  *很清楚了已经
  * */
 public class Problem_0075_SortColors {
-	public static void sortColors(int[] nums) {
+	public static int[] sortColors(int[] nums) {
 
 		int less = -1;
 		int more = nums.length;
@@ -27,6 +27,8 @@ public class Problem_0075_SortColors {
 				swap(nums, index, --more);
 			}
 		}
+
+		return nums;
 	}
 
 
@@ -40,6 +42,24 @@ public class Problem_0075_SortColors {
 		int tmp = nums[i];
 		nums[i] = nums[j];
 		nums[j] = tmp;
+	}
+
+
+
+
+
+
+
+
+
+	public static void main(String[] args) {
+		int[] ints = {2, 1, 2,1,0,0,0,1,1,1,2,2,2,2};
+
+		int[] ints1 = sortColors(ints);
+		for (int i = 0; i <ints1.length ; i++) {
+			System.out.println(ints1[i]);
+		}
+
 	}
 
 }

@@ -4,12 +4,92 @@ public class Problem_0148_SortList {
 
 	//time:nlogn
 
+//看解释不看不懂
+	//https://leetcode.cn/problems/sort-list/solution/sort-list-gui-bing-pai-xu-lian-biao-by-jyd/
+
+
+		public ListNode sortList(ListNode head) {
+			if (head == null || head.next == null)
+				return head;
+			ListNode fast = head.next, slow = head;
+
+			while (fast != null && fast.next != null) {
+				slow = slow.next;
+				fast = fast.next.next;
+			}
+			ListNode tmp = slow.next;
+			slow.next = null;
+
+			ListNode left = sortList(head);
+			ListNode right = sortList(tmp);
+
+			ListNode h = new ListNode(0);
+			ListNode res = h;
+
+			while (left != null && right != null) {
+				if (left.val < right.val) {
+					h.next = left;
+					left = left.next;
+				} else {
+					h.next = right;
+					right = right.next;
+				}
+				h = h.next;
+			}
+
+			h.next = left != null ? left : right;
+			return res.next;
+		}
 
 
 
+
+
+//============================================================================
+
+	//个人感觉递归分割链表时写成这样好理解些
+	public ListNode sortList1(ListNode head) {
+		return sort(head, null);
+	}
+
+	private ListNode sort(ListNode start, ListNode end) {
+		if(start == end)        return start;
+
+		ListNode fast = start, slow = start;
+		while(fast != end && fast.next != end){
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+
+		ListNode l2 = sort(slow.next, end);
+		slow.next = null;//断开变成了俩了
+		ListNode l1 = sort(start, slow);
+
+
+		return merge(l1, l2);
+	}
+
+
+	//递归
+	private ListNode merge(ListNode l1, ListNode l2) {
+		if(l1 == null || l2 == null)
+			return l1 == null ? l2 : l1;
+
+		if(l1.val < l2.val){
+			l1.next = merge(l1.next, l2);
+			return l1;
+		}else{
+			l2.next = merge(l1, l2.next);
+			return l2;
+		}
+	}
+
+
+
+//============================================================================
 
 	// 自底向上归并排序
-	public ListNode sortList(ListNode head) {
+	public ListNode sortList2(ListNode head) {
 		if(head == null){
 			return head;
 		}
@@ -72,6 +152,9 @@ public class Problem_0148_SortList {
 
 
 
+
+
+
 	// 此处是Leetcode21 --> 合并两个有序链表
 	public ListNode mergeTwoLists(ListNode l1,ListNode l2){
 		ListNode dummy = new ListNode(0);
@@ -104,53 +187,6 @@ public class Problem_0148_SortList {
 
 
 
-
-
-
-
-
-
-
-	//=---------------------------------------------------------------
-
-
-	//https://leetcode.cn/problems/sort-list/
-	//个人感觉递归分割链表时写成这样好理解些
-	public ListNode sortList1(ListNode head) {
-		return sort(head, null);
-	}
-
-	private ListNode sort(ListNode start, ListNode end) {
-		if(start == end)        return start;
-
-		ListNode fast = start, slow = start;
-		while(fast != end && fast.next != end){
-			fast = fast.next.next;
-			slow = slow.next;
-		}
-
-		ListNode l2 = sort(slow.next, end);
-		slow.next = null;//断开变成了俩了
-		ListNode l1 = sort(start, slow);
-
-
-		return merge(l1, l2);
-	}
-
-
-	//递归
-	private ListNode merge(ListNode l1, ListNode l2) {
-		if(l1 == null || l2 == null)
-			return l1 == null ? l2 : l1;
-
-		if(l1.val < l2.val){
-			l1.next = merge(l1.next, l2);
-			return l1;
-		}else{
-			l2.next = merge(l1, l2.next);
-			return l2;
-		}
-	}
 
 
 

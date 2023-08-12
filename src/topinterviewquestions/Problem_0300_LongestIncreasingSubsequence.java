@@ -13,7 +13,38 @@ public class Problem_0300_LongestIncreasingSubsequence {
 //输入：nums = [0,1,0,3,2,3]
 //输出：4
 //链接：https://leetcode.cn/problems/longest-increasing-subsequence
-	public static int lengthOfLIS(int[] arr) {
+
+
+
+
+	public int lengthOfLIS(int[] nums) {
+		if (nums.length == 0) {
+			return 0;
+		}
+		int[] dp = new int[nums.length];
+		dp[0] = 1;
+		int maxans = 1;
+
+		for (int i = 1; i < nums.length; i++) {
+			dp[i] = 1;
+
+			for (int j = 0; j < i; j++) {
+				if (nums[i] > nums[j]) {  //就算大，加一也根本够不到
+					dp[i] = Math.max(dp[i], dp[j] + 1);//前几次虚谎一枪最后一次才做改变
+				}
+			}
+			maxans = Math.max(maxans, dp[i]);
+		}
+
+		return maxans;
+	}
+
+
+
+	//===============================================================================
+
+
+	public static int lengthOfL(int[] arr) {
 		if (arr == null || arr.length == 0) {
 			return 0;
 		}

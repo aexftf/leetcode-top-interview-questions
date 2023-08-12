@@ -16,6 +16,26 @@ public class Problem_0215_KthLargestElementInAnArray {
 //输入: [3,2,3,1,2,4,5,5,6], k = 4
 //输出: 4
 //链接：https://leetcode.cn/problems/kth-largest-element-in-an-array
+
+
+
+
+
+
+
+
+	public int findKthLargest2b(int[] nums, int k) {
+		Arrays.sort(nums);
+		return nums[nums.length - k];
+	}
+
+
+
+
+
+//===========================================================================
+
+
 	public int findKthLargest(int[] nums, int k) {
 		return minKth(nums, nums.length + 1 - k);
 	}
@@ -95,8 +115,5 @@ public class Problem_0215_KthLargestElementInAnArray {
 
 
 
-	public int findKthLargest2b(int[] nums, int k) {
-		Arrays.sort(nums);
-		return nums[nums.length - k];
-	}
+
 }

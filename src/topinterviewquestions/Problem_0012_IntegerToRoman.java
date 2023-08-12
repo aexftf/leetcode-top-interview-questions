@@ -9,7 +9,7 @@ public class Problem_0012_IntegerToRoman {
 				{ "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" },
 				{ "", "M", "MM", "MMM" } };
 		StringBuilder roman = new StringBuilder();
-
+//1000
 		roman
 		.append(c[3][num / 1000 % 10])
 		.append(c[2][num / 100 % 10])

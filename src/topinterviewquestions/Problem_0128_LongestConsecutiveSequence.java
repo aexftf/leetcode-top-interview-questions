@@ -14,7 +14,7 @@ public class Problem_0128_LongestConsecutiveSequence {
 //输出：9
 //链接：https://leetcode.cn/problems/longest-consecutive-sequence
 
-	public static int longestConsecutive(int[] nums) {
+		public static int longestConsecutive(int[] nums) {
 
 		HashMap<Integer, Integer> map = new HashMap<>();
 		int len = 0;

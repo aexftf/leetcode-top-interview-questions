@@ -1,6 +1,20 @@
 package topinterviewquestions;
 //缺失的第一个正数
+//示例1：
+//
+//输入： nums = [1,2,0]
+//输出： 3
+//示例2：
+//
+//输入： nums = [3,4,-1,1]
+//输出： 2
+//示例3：
+//
+//输入： nums = [7,8,9,11,12]
+//输出： 1
+//
 public class Problem_0041_FirstMissingPositive {
+
 
 	//必须画图，分三种情况讨论
     public static int firstMissingPositive(int[] arr) {

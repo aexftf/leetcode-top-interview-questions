@@ -84,7 +84,7 @@ public class Problem_0008_StringToInteger {
 			}
 
 			if (neg && ans > 1L + Integer.MAX_VALUE) {
-				ans = 1L + Integer.MAX_VALUE;//1L
+				ans = 1L + Integer.MAX_VALUE;//1L  负数比正数多一个数
 				break;
 			}
 		}
@@ -93,6 +93,11 @@ public class Problem_0008_StringToInteger {
 
 		return neg ? (int) -ans : (int) ans;
 	}
+
+
+
+
+
 
 
 

@@ -24,13 +24,13 @@ public class Problem_0179_LargestNumber {
 	}
 
 	public String largestNumber(int[] nums) {
-		String[] strs = new String[nums.length];
+		String[] strs = new String[nums.length];//
 
-		for (int i = 0; i < nums.length; i++) {
+		for (int i = 0; i < nums.length; i++) {//
 			strs[i] = String.valueOf(nums[i]);
 		}
 
-		Arrays.sort(strs, new MyComparator());
+		Arrays.sort(strs, new MyComparator());//
 		StringBuilder builder = new StringBuilder();
 
 		for (String str : strs) {
@@ -42,9 +42,9 @@ public class Problem_0179_LargestNumber {
 
 		int index = -1;
 
-		//鸡肋,判first0用的
 		for (int i = 0; i < str.length; i++) {
-			if (str[i] != '0') {
+			if (str[i] != '0') {		//等于零跳过去,判first0用的
+
 				index = i;
 				break;
 			}

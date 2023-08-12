@@ -28,11 +28,11 @@ public class Problem_0042_TrappingRainWater {
 		int water = 0;
 
 		while (L <= R) {
-			if (leftMax <= rightMax) {
-				water += Math.max(0, leftMax - arr[L]);
+			if (leftMax <= rightMax) {      //按照小的来
+				water += Math.max(0, leftMax - arr[L]);//
 				leftMax = Math.max(leftMax, arr[L++]);
 			} else {
-				water += Math.max(0, rightMax - arr[R]);
+				water += Math.max(0, rightMax - arr[R]);//
 				rightMax = Math.max(rightMax, arr[R--]);
 			}
 		}

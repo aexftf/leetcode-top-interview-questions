@@ -30,9 +30,11 @@ public class Problem_0028_ImplementStrStr {
 					break;
 				}
 			}
+
 			if (flag) {
 				return i;
 			}
+
 		}
 		return -1;
 	}
@@ -42,7 +44,13 @@ public class Problem_0028_ImplementStrStr {
 
 
 
-	//------------------------------------
+
+
+
+
+
+
+	//--------------------------------------------------------------------------------
 
 	public static int strStr(String haystack, String needle) {
 		return getIndexOf(haystack, needle);

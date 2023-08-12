@@ -45,7 +45,7 @@ public class Problem_0036_ValidSudoku {
 					row[i][num] = true;
 					col[j][num] = true;
 					bucket[bid][num] = true;
-//					board[i][j] = '.';
+					board[i][j] = '.';
 
 				}
 			}

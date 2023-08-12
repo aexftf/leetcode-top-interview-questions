@@ -19,7 +19,7 @@ import java.util.List;
 public class Problem_0139_WordBreak {
 
 
-//递归
+//递归  直接返回几种，增加了难度属于是
 	public static boolean wordBreak2(String s, List<String> wordDict) {
 		return process(s, 0, new HashSet<>(wordDict)) != 0;
 	}
@@ -46,6 +46,7 @@ public class Problem_0139_WordBreak {
 		}
 		return ways;
 	}
+
 
 
 

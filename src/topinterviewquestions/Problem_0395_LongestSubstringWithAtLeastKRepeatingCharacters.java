@@ -36,8 +36,12 @@ public class Problem_0395_LongestSubstringWithAtLeastKRepeatingCharacters {
 				}
 
 				count[str[j]]++;
-
-				if (collect == satisfy) {
+//* 示例 2：
+// * 输入：s = "ababbc", k = 2
+// * 输出：5
+// * 解释：最长子串为 "ababb" ，其中 'a' 重复了 2 次， 'b' 重复了 3 次。
+// */
+				if (collect == satisfy) {//规律，到了相等的时候就可以下结论了。
 					max = Math.max(max, j - i + 1);
 				}
 			}
@@ -117,45 +121,5 @@ public class Problem_0395_LongestSubstringWithAtLeastKRepeatingCharacters {
 
 
 
-
-
-
-	// 会超时，但是思路的确是正确的，不用。
-	public static int longestSubstring3(String s, int k) {
-		return process(s.toCharArray(), 0, s.length() - 1, k);
-	}
-
-	public static int process(char[] str, int L, int R, int k) {
-		if (L > R) {
-			return 0;
-		}
-		int[] counts = new int[26];
-		for (int i = L; i <= R; i++) {
-			counts[str[i] - 'a']++;
-		}
-		char few = 0;
-		int min = Integer.MAX_VALUE;
-		for (int i = 0; i < 26; i++) {
-			if (counts[i] != 0 && min > counts[i]) {
-				few = (char) (i + 'a');
-				min = counts[i];
-			}
-		}
-		if (min >= k) {
-			return R - L + 1;
-		}
-		int pre = 0;
-		int max = Integer.MIN_VALUE;
-		for (int i = L; i <= R; i++) {
-			if (str[i] == few) {
-				max = Math.max(max, process(str, pre, i - 1, k));
-				pre = i + 1;
-			}
-		}
-		if (pre != R + 1) {
-			max = Math.max(max, process(str, pre, R, k));
-		}
-		return max;
-	}
 
 }

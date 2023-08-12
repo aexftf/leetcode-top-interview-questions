@@ -11,7 +11,7 @@ package topinterviewquestions;
 //输出：2
 //链接：https://leetcode.cn/problems/majority-element
 public class Problem_0169_MajorityElement {
-//很巧妙
+//很巧妙   立靶子
 	public static int majorityElement(int[] nums) {
 		int cand = 0;
 		int HP = 0;

@@ -36,15 +36,14 @@ public class Problem_0091_DecodeWays {
 
 		// index还有字符, 又不是‘0’
 
-		// 1) （index 1 ~ 9）index单独转
 		int ways = process(str, index + 1);
 
-		// 2) (index index + 1) -> index + 2 ....越界返回单转
+		//  ....越界返回
 		if (index + 1 == str.length) {
 			return ways;
 		}
 
-		// 双转(index index + 1) "23" -> 23 "17" -> 17
+		//  （index 1 ~ 9）index单独转，(index index + 1) -> index + 2 双转(index index + 1) "23" -> 23 "17" -> 17
 		int num = (str[index] - '0') * 10 + str[index + 1] - '0';
 
 		// num > 26越界返回

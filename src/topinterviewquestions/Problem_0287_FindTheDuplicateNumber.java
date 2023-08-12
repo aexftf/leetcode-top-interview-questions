@@ -1,5 +1,7 @@
 package topinterviewquestions;
 
+import java.util.Arrays;
+
 public class Problem_0287_FindTheDuplicateNumber {
 //给定一个包含n + 1 个整数的数组nums ，其数字都在[1, n]范围内（包括 1 和 n），可知至少存在一个重复的整数。
 //假设 nums 只有 一个重复的整数 ，返回这个重复的数 。
@@ -14,6 +16,23 @@ public class Problem_0287_FindTheDuplicateNumber {
 //输出：3
 
 //https://leetcode.cn/problems/find-the-duplicate-number
+
+
+
+
+	public int findDuplicate1(int[] nums) {
+		Arrays.sort(nums);
+		int res = 0;
+		for(int i = 1; i < nums.length; i++) {
+			if(nums[i] == nums[i-1]) {
+				res = nums[i];
+				break;
+			}
+		}
+
+		return res;
+	}
+
 
 		public int findDuplicate(int[] nums) {
 			int n = nums.length;
@@ -40,23 +59,9 @@ public class Problem_0287_FindTheDuplicateNumber {
 		}
 
 
-		public int lengthOfLIS(int[] nums) {
-			if (nums.length == 0) {
-				return 0;
-			}
-			int[] dp = new int[nums.length];
-			dp[0] = 1;
-			int maxans = 1;
-			for (int i = 1; i < nums.length; i++) {
-				dp[i] = 1;
-				for (int j = 0; j < i; j++) {
-					if (nums[i] > nums[j]) {
-						dp[i] = Math.max(dp[i], dp[j] + 1);
-					}
-				}
-				maxans = Math.max(maxans, dp[i]);
-			}
-			return maxans;
-		}
+
+
+
+
 
 }

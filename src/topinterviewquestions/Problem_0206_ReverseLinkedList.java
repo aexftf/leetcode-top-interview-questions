@@ -24,6 +24,7 @@ public class Problem_0206_ReverseLinkedList {
 
 
 
+
 	public static class ListNode {
 		int val;
 		ListNode next;

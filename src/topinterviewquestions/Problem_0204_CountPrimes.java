@@ -18,7 +18,43 @@ public class Problem_0204_CountPrimes {
 //输出：0
 
 	//https://leetcode.cn/problems/count-primes/solution/ji-shu-zhi-shu-by-leetcode-solution/
-	public static int countPrimes(int n) {
+
+
+
+
+	public int countPrimes(int n) {
+		int ans = 0;
+		for (int i = 2; i < n; ++i) {
+			ans += isPrime(i) ? 1 : 0;
+		}
+		return ans;
+	}
+
+	public boolean isPrime(int x) {
+		for (int i = 2; i * i <= x; ++i) {
+			if (x % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+//	链接：https://leetcode.cn/problems/count-primes/solutions/507273/ji-shu-zhi-shu-by-leetcode-solution/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public static int countPrimes1(int n) {// 6为例    2，4，6干掉   1，3，5剩下计数
 		if (n < 3) {
 			return 0;
 		}

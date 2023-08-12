@@ -22,7 +22,7 @@ public class Problem_0019_RemoveNthNodeFromEndofList {
 		int length = getLength(head);
 		ListNode cur = dummy;
 
-		for (int i = 1; i < length - n + 1; ++i) {
+		for (int i = 1; i < length - n + 1; ++i) {//规律length-n+1
 			cur = cur.next;
 		}
 		cur.next = cur.next.next;
@@ -97,4 +97,9 @@ public class Problem_0019_RemoveNthNodeFromEndofList {
 		public ListNode(int val, ListNode head) {
 		}
 	}
+
+
+
+
+
 }

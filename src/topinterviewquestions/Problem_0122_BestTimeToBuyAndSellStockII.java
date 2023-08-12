@@ -29,7 +29,7 @@ public class Problem_0122_BestTimeToBuyAndSellStockII {
 		int ans = 0;
 		for (int i = 1; i < arr.length; i++) {
 			if (arr[i] > arr[i-1]) {  // 卖出有利可图
-				ans += (arr[i] - arr[i-1]);//所有的
+				ans += (arr[i] - arr[i-1]);//所有的    规律，和最大减去最小 一个结果。
 			}
 		}
 

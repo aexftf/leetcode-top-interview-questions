@@ -4,7 +4,7 @@ package topinterviewquestions;
 //给你一个字符串 s，如果它是 回文串 ，返回 true ；否则，返回 false 。
 
 //示例 1：
-//输入: s = "A man, a plan, a canal: Panama"
+//输入: s = "A man, a plan, a c anal: Panama"
 //输出：true
 //解释："amanaplanacanalpanama" 是回文串。
 
@@ -39,6 +39,7 @@ public class Problem_0125_ValidPalindrome {
 				R -= validChar(str[R]) ? 0 : 1;
 			}
 		}
+
 		return true;
 	}
 

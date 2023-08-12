@@ -21,7 +21,7 @@ package topinterviewquestions;
 public class Problem_0002_AddTwoNumbers {
 
 
-//规律，加完之后倒过来，记住正好了一样
+//规律，加完之后倒过来，记住正好了一样  //看以前画的图就懂了
 	public static ListNode addTwoNumbers(ListNode head1, ListNode head2) {
 		int ca = 0;
 		int n1 = 0;
@@ -57,6 +57,10 @@ public class Problem_0002_AddTwoNumbers {
 
 
 
+
+
+
+
 //=========================================
 	public static ListNode reverseList(ListNode head) {
 		ListNode pre = null;
@@ -70,6 +74,10 @@ public class Problem_0002_AddTwoNumbers {
 		}
 		return pre;
 	}
+
+
+
+
 
 
 

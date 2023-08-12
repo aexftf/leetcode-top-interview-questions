@@ -23,9 +23,39 @@ public class Problem_0160_IntersectionOfTwoLinkedLists {
 //在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。
 //— 请注意相交节点的值不为 1，因为在链表 A 和链表 B 之中值为 1 的节点 (A 中第二个节点和 B 中第三个节点) 是不同的节点。换句话说，它们在内存中指向两个不同的位置，而链表 A 和链表 B 中值为 8 的节点 (A 中第三个节点，B 中第四个节点) 在内存中指向相同的位置。
 
+
+
+
+	//     https://leetcode.cn/problems/intersection-of-two-linked-lists/solutions/10774/tu-jie-xiang-jiao-lian-biao-by-user7208t/
+
+
+//	弄这么多字也没讲明白。若相交，链表A： a+c, 链表B : b+c. a+c+b+c = b+c+a+c 。则会在公共处c起点相遇。若不相交，a +b = b+a 。因此相遇处是NULL
+//	受评论区启发加上自己理解：大家可以这样看 有相交时A：a+c，B：b+c，且满足等式a+c+b+c=b+c+a+c，因此他们走了a+b+c之后在c处相遇。 无相交时A：a+c1，B：b+c2。c1与c2仅仅结点数量相同，因此a+c1+b+c2=b+c2+a+c1，且a+c1+b=b+c2+a；但是接下来一个走c1一个走c2，距离NULL距离相同但是并非相交。
+//看图一看就懂
+
+	public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+		if (headA == null || headB == null) return null;
+		ListNode pA = headA, pB = headB;
+		while (pA != pB) {
+			pA = pA == null ? headB : pA.next;
+			pB = pB == null ? headA : pB.next;
+		}
+		return pA;
+	}
+
 //链接：https://leetcode.cn/problems/intersection-of-two-linked-lists
 
-	public static ListNode getIntersectionNode(ListNode head1, ListNode head2) {
+
+
+
+
+
+
+
+
+
+
+	public static ListNode getIntersectionNode1(ListNode head1, ListNode head2) {
 		if (head1 == null || head2 == null) {
 			return null;
 		}
@@ -65,14 +95,6 @@ public class Problem_0160_IntersectionOfTwoLinkedLists {
 		}
 		return cur1;
 	}
-
-
-
-
-
-
-
-
 
 	public class ListNode {
 		int val;

@@ -14,6 +14,7 @@ public class Problem_0328_OddEvenLinkedList {
 			ListNode oddTail = oddHead;
 			ListNode evenHead = new ListNode();
 			ListNode evenTail = evenHead;
+
 			// 遍历原链表，根据 isOdd 标识位决定将当前结点插入到奇链表还是偶链表（尾插法）
 			boolean isOdd = true;
 			while (head != null) {
@@ -45,7 +46,7 @@ public class Problem_0328_OddEvenLinkedList {
 
 
 
-
+//================================================================================
 
 
 
