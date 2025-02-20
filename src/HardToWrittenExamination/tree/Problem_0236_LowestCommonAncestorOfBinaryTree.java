@@ -1,4 +1,4 @@
-package topinterviewquestions.tree;
+package HardToWrittenExamination.tree;
 
 public class Problem_0236_LowestCommonAncestorOfBinaryTree {
 

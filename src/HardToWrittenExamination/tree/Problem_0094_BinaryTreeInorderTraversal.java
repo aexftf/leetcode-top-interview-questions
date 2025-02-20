@@ -1,6 +1,9 @@
-package topinterviewquestions.tree;
+package HardToWrittenExamination.tree;
 
-public class Problem_0098_ValidateBinarySearchTree {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Problem_0094_BinaryTreeInorderTraversal {
 
 	public static class TreeNode {
 		int val;
@@ -8,15 +11,27 @@ public class Problem_0098_ValidateBinarySearchTree {
 		TreeNode right;
 	}
 
-	public boolean isValidBST(TreeNode root) {
+
+
+
+
+
+
+
+
+	public static List<Integer> inorderTraversal(TreeNode root) {
+
+
+		TreeNode treeNode = new TreeNode();
+
+
+		List<Integer> ans = new ArrayList<>();
 		if (root == null) {
-			return true;
+			return ans;
 		}
 
 		TreeNode cur = root;
 		TreeNode mostRight = null;
-		Integer pre = null;
-		boolean ans = true;
 
 		while (cur != null) {
 			mostRight = cur.left;
@@ -34,11 +49,7 @@ public class Problem_0098_ValidateBinarySearchTree {
 					mostRight.right = null;
 				}
 			}
-			if (pre != null && pre >= cur.val) {
-				ans = false;
-			}
-
-			pre = cur.val;
+			ans.add(cur.val);
 			cur = cur.right;
 		}
 		return ans;

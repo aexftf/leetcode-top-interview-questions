@@ -1,4 +1,4 @@
-package topinterviewquestions.tree;
+package HardToWrittenExamination.tree;
 //中序遍历,早看完了
 
 public class Problem_0285_InorderSuccessorInBST {
