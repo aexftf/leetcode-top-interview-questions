@@ -25,7 +25,7 @@ public class Problem_0055_JumpGame {
 			//return true;
 			// }
 
-			if (i > max) {
+			if (i > max) {     //代入数 nums[i]<0就完了
 				return false;
 			}
 			max = Math.max(max, i + nums[i]);
